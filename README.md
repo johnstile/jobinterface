@@ -7,11 +7,17 @@
   Based on tutorial from [Thomas Davis](https://github.com/thomasdavis/backbonetutorials)
 
 ### Libraries:
+
 [Requirejs](http://requirejs.org/) : Manage page loading requirements
+
 [Backbone](http://backbonejs.org) : Model View Presenter API
+
 [Underscore](http://underscorejs.org) : Used for HTML templating
+
 [JQuery](https://jquery.com/) : JavaScript library
+
 [tablesorter](http://mottie.github.io/tablesorter/): Table sorting
+
 [Backform.js](https://amiliaapp.github.io/backform/): Handle forms client side.
 
 ### Directory Organization
