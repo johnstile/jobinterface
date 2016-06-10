@@ -57,6 +57,7 @@
 +-- index.html            Start of load, base anchors for content.
 ```
 ### App Loading
+```.
   index.html
     loads master css  (which loads other css files)
     feeds underscore the main.js
@@ -71,3 +72,4 @@
     setups routes to #/jobs, #/configs, and default $/*actions
     initialize calls Backbone.history.start
   
+```
