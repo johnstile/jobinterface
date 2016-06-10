@@ -1,0 +1,9 @@
+<ul>
+  <% _.each(jobs, function(job){ %>
+   <li>
+     <%= job.get("conf")  %>  
+     <%= job.get("log")  %>  
+     <%= job.get("pid")  %>  
+  </li> 
+  <% }); %>
+</ul>

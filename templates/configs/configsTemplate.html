@@ -1,0 +1,36 @@
+<h3>Config Files</h3>
+<button id="conf-edit-button">show form</button>
+<div id="form">
+    <h3>No form loaded</h3>
+</div>
+<div id="confs-list">
+    <table border=1 id="confsTable">
+        <thead>
+        <tr>
+            <th>Edit</th>
+            <th>Name</th>
+            <th>NetbooterIp</th>
+            <th>Port</th>
+            <th>mac</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tbody>
+        <% _.each(confs, function(c){ %>
+            <tr>
+                <td><input type="button" class="conf-edit-button" id="<%= c.id %>" /></td>
+                <td><%= c.id %></td>
+                <td><%= c.get('conf')["Netbooter"]["ipv4 address"] %></td>
+                <td><%= Object.keys(c.get('conf')["Netbooter"])%></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4">conf:<%= JSON.stringify(c.get("conf")) %></td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="sidebar"></div>

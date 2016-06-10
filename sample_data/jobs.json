@@ -1,0 +1,1518 @@
+[
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 66,
+    "result": "SUCCESS",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/66/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.31_12.40.09_G2_glitch_test.log",
+        "displayPath": "2016.05.31_12.40.09_G2_glitch_test.log",
+        "fileName": "2016.05.31_12.40.09_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      },
+      {
+        "relativePath": "te_glitch_test_oven.yaml.json",
+        "displayPath": "te_glitch_test_oven.yaml.json",
+        "fileName": "te_glitch_test_oven.yaml.json"
+      }
+    ],
+    "state": false,
+    "build_number": 65,
+    "result": "SUCCESS",
+    "build_date": "20160531_124001",
+    "url": "http://localhost:8080/jenkins/job/glitch1/65/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.31_11.44.23_G2_glitch_test.log",
+        "displayPath": "2016.05.31_11.44.23_G2_glitch_test.log",
+        "fileName": "2016.05.31_11.44.23_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      },
+      {
+        "relativePath": "te_glitch_test_oven.yaml.json",
+        "displayPath": "te_glitch_test_oven.yaml.json",
+        "fileName": "te_glitch_test_oven.yaml.json"
+      }
+    ],
+    "state": false,
+    "build_number": 64,
+    "result": "SUCCESS",
+    "build_date": "20160531_114416",
+    "url": "http://localhost:8080/jenkins/job/glitch1/64/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      },
+      {
+        "relativePath": "te_glitch_test_oven.yaml.json",
+        "displayPath": "te_glitch_test_oven.yaml.json",
+        "fileName": "te_glitch_test_oven.yaml.json"
+      }
+    ],
+    "state": false,
+    "build_number": 63,
+    "result": "FAILURE",
+    "build_date": "20160531_114241",
+    "url": "http://localhost:8080/jenkins/job/glitch1/63/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.31_11.27.58_G2_glitch_test.log",
+        "displayPath": "2016.05.31_11.27.58_G2_glitch_test.log",
+        "fileName": "2016.05.31_11.27.58_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 62,
+    "result": "SUCCESS",
+    "build_date": "20160531_112751",
+    "url": "http://localhost:8080/jenkins/job/glitch1/62/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.31_11.20.13_G2_glitch_test.log",
+        "displayPath": "2016.05.31_11.20.13_G2_glitch_test.log",
+        "fileName": "2016.05.31_11.20.13_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 61,
+    "result": "ABORTED",
+    "build_date": "20160531_112008",
+    "url": "http://localhost:8080/jenkins/job/glitch1/61/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 60,
+    "result": "FAILURE",
+    "build_date": "20160531_111735",
+    "url": "http://localhost:8080/jenkins/job/glitch1/60/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 59,
+    "result": "FAILURE",
+    "build_date": "20160531_111251",
+    "url": "http://localhost:8080/jenkins/job/glitch1/59/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 58,
+    "result": "FAILURE",
+    "build_date": "20160531_111105",
+    "url": "http://localhost:8080/jenkins/job/glitch1/58/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.13.57_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.13.57_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.13.57_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.07_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.07_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.07_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 57,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch1/57/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.13.57_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.13.57_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.13.57_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 56,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch1/56/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 55,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch1/55/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 54,
+    "result": "FAILURE",
+    "build_date": "${ENV, var=\"BUILD_TIMESTAMP\"}",
+    "url": "http://localhost:8080/jenkins/job/glitch1/54/",
+    "serialno": "00000000",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.49.02_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.49.02_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.49.02_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 53,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch1/53/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.47.07_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.07_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.07_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 52,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch1/52/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "displayPath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "fileName": "2016.05.20_16.15.01_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_15.31.01_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_15.31.01_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_15.31.01_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.32_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 51,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch1/51/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "displayPath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "fileName": "2016.05.20_16.15.01_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_15.31.01_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_15.31.01_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_15.31.01_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 50,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch1/50/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "displayPath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "fileName": "2016.05.20_16.15.01_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_15.31.01_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_15.31.01_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_15.31.01_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 49,
+    "result": "SUCCESS",
+    "build_date": "20160524_152116",
+    "url": "http://localhost:8080/jenkins/job/glitch1/49/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "displayPath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "fileName": "2016.05.20_16.15.01_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 48,
+    "result": "FAILURE",
+    "build_date": "20160524_152116",
+    "url": "http://localhost:8080/jenkins/job/glitch1/48/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "displayPath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "fileName": "2016.05.20_16.15.01_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 47,
+    "result": "FAILURE",
+    "build_date": "20160524_152116",
+    "url": "http://localhost:8080/jenkins/job/glitch1/47/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "displayPath": "2016.05.20_16.15.01_G2_glitch_test.log",
+        "fileName": "2016.05.20_16.15.01_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 46,
+    "result": "SUCCESS",
+    "build_date": "20160520_161453",
+    "url": "http://localhost:8080/jenkins/job/glitch1/46/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 45,
+    "result": "FAILURE",
+    "build_date": "20160520_161200",
+    "url": "http://localhost:8080/jenkins/job/glitch1/45/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 44,
+    "result": "ABORTED",
+    "build_date": "20160520_160407",
+    "url": "http://localhost:8080/jenkins/job/glitch1/44/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 43,
+    "result": "ABORTED",
+    "build_date": "20160520_155323",
+    "url": "http://localhost:8080/jenkins/job/glitch1/43/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 42,
+    "result": "FAILURE",
+    "build_date": "20160520_155323",
+    "url": "http://localhost:8080/jenkins/job/glitch1/42/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 41,
+    "result": "FAILURE",
+    "build_date": "20160520_154752",
+    "url": "http://localhost:8080/jenkins/job/glitch1/41/",
+    "serialno": "10330581",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 40,
+    "result": "ABORTED",
+    "build_date": "20160520_154640",
+    "url": "http://localhost:8080/jenkins/job/glitch1/40/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 39,
+    "result": "SUCCESS",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/39/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 38,
+    "result": "ABORTED",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/38/",
+    "serialno": "10330582",
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 37,
+    "result": "SUCCESS",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/37/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 36,
+    "result": "ABORTED",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/36/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 35,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/35/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 34,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/34/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 33,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/33/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 32,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/32/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 31,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/31/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 30,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/30/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 29,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/29/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 28,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/28/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 27,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/27/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 26,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/26/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 25,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/25/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_11.55.03_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_11.55.03_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 24,
+    "result": "ABORTED",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/24/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.20_00.31.13_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.20_00.31.13_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 23,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/23/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 22,
+    "result": "ABORTED",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/22/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 21,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/21/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 20,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/20/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 19,
+    "result": "ABORTED",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/19/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 18,
+    "result": "ABORTED",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/18/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 17,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/17/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 16,
+    "result": "ABORTED",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/16/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 14,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/14/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 13,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/13/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 12,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/12/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 11,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/11/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 10,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/10/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 9,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/9/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 8,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/8/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 7,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/7/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 6,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/6/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [],
+    "state": false,
+    "build_number": 5,
+    "result": "FAILURE",
+    "build_date": null,
+    "url": "http://localhost:8080/jenkins/job/glitch1/5/",
+    "serialno": null,
+    "job_name": "glitch1"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.14.57_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.01_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.52_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.52_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.52_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.17.27_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.17.27_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.17.27_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 13,
+    "result": "FAILURE",
+    "build_date": "20160531_110615",
+    "url": "http://localhost:8080/jenkins/job/glitch2/13/",
+    "serialno": "10330582",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.14.57_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.01_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.52_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.52_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.52_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.17.27_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.17.27_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.17.27_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 12,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch2/12/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.27_14.15.17_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.15.17_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.15.17_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.17.07_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.17.07_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.17.07_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 11,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch2/11/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.14.57_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.01_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.52_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.52_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.52_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 10,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch2/10/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.14.57_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.16.01_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.16.01_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 9,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch2/9/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.27_14.15.17_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.15.17_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.15.17_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 8,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch2/8/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_14.14.57_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_14.14.57_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 7,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch2/7/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.27_12.13.11_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.27_12.13.11_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 6,
+    "result": "SUCCESS",
+    "build_date": "20160527_121303",
+    "url": "http://localhost:8080/jenkins/job/glitch2/6/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 5,
+    "result": "FAILURE",
+    "build_date": "${ENV, var=\"BUILD_TIMESTAMP\"}",
+    "url": "http://localhost:8080/jenkins/job/glitch2/5/",
+    "serialno": "00000000",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.47.32_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.47.32_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 4,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch2/4/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.36.12_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.36.12_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 3,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch2/3/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.34.47_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.34.47_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 2,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch2/2/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "displayPath": "2016.05.24_16.03.56_MOC_G2_glitch_test.log",
+        "fileName": "2016.05.24_16.03.56_MOC_G2_glitch_test.log"
+      }
+    ],
+    "state": false,
+    "build_number": 1,
+    "result": "SUCCESS",
+    "build_date": "20160524_160349",
+    "url": "http://localhost:8080/jenkins/job/glitch2/1/",
+    "serialno": "10330581",
+    "job_name": "glitch2"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "2016.06.06_14.46.39_G2_glitch_test.log",
+        "displayPath": "2016.06.06_14.46.39_G2_glitch_test.log",
+        "fileName": "2016.06.06_14.46.39_G2_glitch_test.log"
+      },
+      {
+        "relativePath": "conf_file",
+        "displayPath": "conf_file",
+        "fileName": "conf_file"
+      },
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      }
+    ],
+    "state": false,
+    "build_number": 5,
+    "result": "SUCCESS",
+    "build_date": "${ENV, var=\"BUILD_TIMESTAMP\"}",
+    "url": "http://localhost:8080/jenkins/job/glitch3/5/",
+    "serialno": "00000000",
+    "job_name": "glitch3"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "conf_file",
+        "displayPath": "conf_file",
+        "fileName": "conf_file"
+      },
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      }
+    ],
+    "state": false,
+    "build_number": 4,
+    "result": "FAILURE",
+    "build_date": "${ENV, var=\"BUILD_TIMESTAMP\"}",
+    "url": "http://localhost:8080/jenkins/job/glitch3/4/",
+    "serialno": "00000000",
+    "job_name": "glitch3"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "conf_file",
+        "displayPath": "conf_file",
+        "fileName": "conf_file"
+      },
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      }
+    ],
+    "state": false,
+    "build_number": 3,
+    "result": "FAILURE",
+    "build_date": "${ENV, var=\"BUILD_TIMESTAMP\"}",
+    "url": "http://localhost:8080/jenkins/job/glitch3/3/",
+    "serialno": "00000000",
+    "job_name": "glitch3"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "conf_file",
+        "displayPath": "conf_file",
+        "fileName": "conf_file"
+      },
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      }
+    ],
+    "state": false,
+    "build_number": 2,
+    "result": "FAILURE",
+    "build_date": "${ENV, var=\"BUILD_TIMESTAMP\"}",
+    "url": "http://localhost:8080/jenkins/job/glitch3/2/",
+    "serialno": "00000000",
+    "job_name": "glitch3"
+  },
+  {
+    "artifacts": [
+      {
+        "relativePath": "conf_file",
+        "displayPath": "conf_file",
+        "fileName": "conf_file"
+      },
+      {
+        "relativePath": "te_glitch_test.py",
+        "displayPath": "te_glitch_test.py",
+        "fileName": "te_glitch_test.py"
+      }
+    ],
+    "state": false,
+    "build_number": 1,
+    "result": "FAILURE",
+    "build_date": "${ENV, var=\"BUILD_TIMESTAMP\"}",
+    "url": "http://localhost:8080/jenkins/job/glitch3/1/",
+    "serialno": "00000000",
+    "job_name": "glitch3"
+  }
+]

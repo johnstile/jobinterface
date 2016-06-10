@@ -1,0 +1,41 @@
+<div class="main">
+    <h2>Jobs</h2>
+    <div id="job-ctrl">
+        <input type="button" id="job-new-button" value="New Job" />
+    </div>
+    <div id="jobs-list">
+        <table border=1 id="jobsTable" class="tablesorter">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Number</th>
+                <th>State</th>
+                <th>Result</th>
+                <th>Serial</th>
+                <th>Date</th>
+                <th>URL</th>
+                <th>Artifacts</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tbody>
+            <% _.each(jobs, function(job){ %>
+            <tr>
+                <td><%= job.get("job_name") %></td>
+                <td><%= job.get("build_number") %></td>
+                <td><%= job.get("state") %></td>
+                <td><%= job.get("result") %></td>
+                <td><%= job.get("serialno") %></td>
+                <td><%= job.get("build_date") %></td>
+                <td><a href="<%= job.get("url")%>">url</a></td>
+                <td><%= job.get("artifacts") %></td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- REMOVE THE SIDEBAR
+<div class="sidebar"></div>
+-->
+
