@@ -9,7 +9,6 @@ require.config({
         underscore: 'libs/underscore/underscore-min',
         backbone: 'libs/backbone/backbone-min',
         backform: 'libs/backbone/backform',
-        form: 'libs/backbone/backbone-forms',
         'jquery.tablesorter.combined': 'libs/jquery/jquery.tablesorter.combined',
         templates: '../templates'
     },
