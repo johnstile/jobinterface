@@ -14,15 +14,17 @@ define([
             //"click .button-down": "tranistionDown",
         },
         render: function () {
-            mystuff= "<form>" +
-                    "<table border='1'>" +
-                    "<tr><td>Station:<INPUT TYPE=string name='station'></td></tr>" +
-                    "<tr><td>DUT SN:<INPUT TYPE=string name='serialno'></td></tr>" +
-                    "<tr><td><INPUT TYPE=submit value='Go' name='job-start'></td></tr>" +
-                    "</table>"
-                "</form>";
+            mystuff = "<form>" +
+                "<table border='1'>" +
+                "<tr><td>Station:<INPUT TYPE=string name='station'></td></tr>" +
+                "<tr><td>DUT SN:<INPUT TYPE=string name='serialno'></td></tr>" +
+                "<tr><td><INPUT TYPE=submit value='Go' name='job-start'></td></tr>" +
+                "</table>"
+            "</form>";
             console.log(mystuff);
             $("#jobs-list").html(mystuff);
+
+            return this;
         },
         start_job: function (opts) {
             console.log('Starting job');

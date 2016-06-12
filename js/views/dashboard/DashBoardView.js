@@ -15,14 +15,12 @@ define([
             $('.menu li').removeClass('active');
             $('.menu li a[href="#"]').parent().addClass('active');
 
-            console.log($.jobsCollection.length);
-
-
             this.$el.html(dashboardTemplate);
 
             var sidebarView = new SidebarView();
             sidebarView.render();
 
+            return this;
         }
 
     });

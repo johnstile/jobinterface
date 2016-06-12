@@ -42,7 +42,6 @@
 |   |   +-- owner
 |   +-- views             Views bind Collections or Models, and display using templates
 |       +-- configs
-|       |   +-- config
 |       +-- dashboard
 |       +-- jobs
 |       +-- sidebar

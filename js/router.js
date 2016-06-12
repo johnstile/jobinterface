@@ -36,7 +36,8 @@ define([
         app_router.on('route:showConfigs', function () {
 
             var configsView = new ConfigsView();
-            configsView.render();
+            //configsView.render();
+
         });
 
         app_router.on('route:defaultAction', function (actions) {

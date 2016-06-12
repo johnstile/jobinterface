@@ -6,8 +6,8 @@ require.config({
     // Set dependency shortcuts
     paths: {
         jquery: 'libs/jquery/jquery-1.12.4',
-        underscore: 'libs/underscore/underscore-min',
-        backbone: 'libs/backbone/backbone-min',
+        underscore: 'libs/underscore/underscore',
+        backbone: 'libs/backbone/backbone',
         backform: 'libs/backbone/backform',
         'jquery.tablesorter.combined': 'libs/jquery/jquery.tablesorter.combined',
         templates: '../templates'

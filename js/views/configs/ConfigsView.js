@@ -44,44 +44,33 @@ define([
                 _: _
             };
 
-            // Main View
-            var compiledTemplate = _.template(configsTemplate, data);
+            var template = _.template(configsTemplate);
+            var compiledTemplate =template(data);
             this.$el.html(compiledTemplate);
+
             return this;
         },
         show_conf_form: function (e) {
             console.log("calling  show_conf_form");
             /*
-            // Get clicked model from colleciton
-            element = $(e.currentTarget);
-            console.log("clicked:", element.attr('id'));
-            mymodel = this.collection.getByCid(element.attr('id'));
-            */
-
-            // TOY PERSON
+             // Get clicked model from colleciton
+             element = $(e.currentTarget);
+             console.log("clicked:", element.attr('id'));
+             mymodel = this.collection.getByCid(element.attr('id'));
+             */
+                 // TOY PERSON
             var person = new Backbone.Model({
                 id: 101,
                 firstName: "Annie",
                 lastName: "Employee"
             });
             // TOY FIELDS
-            var formFields = [{
-                name: "id",
-                label: "Id",
-                control: "uneditable-input"
-            }, {
-                name: "firstName",
-                label: "First Name",
-                control: "input"
-            }, {
-                name: "lastName",
-                label: "Last Name",
-                control: "input"
-            }, {
-                name: "submitButton",
-                label: "Save to server",
-                control: "button"
-            }];
+            var formFields = [
+                {name: "id", label: "Id", control: "uneditable-input"},
+                {name: "firstName", label: "First Name", control: "input"},
+                {name: "lastName", label: "Last Name", control: "input"},
+                {name: "submitButton", label: "Save to server", control: "button"}
+            ];
             // Instantiate the form
             var form = new Backform.Form({
                 el: $("#form"),
@@ -90,8 +79,6 @@ define([
             });
             // ERROR HERE
             form.render();
-
-
             //$("#form").html(form.el);
         }
 

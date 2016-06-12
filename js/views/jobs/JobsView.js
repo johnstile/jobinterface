@@ -32,7 +32,6 @@ define([
             that.collection = $.jobsCollection;
             that.collection.fetch({success: onDataHandler, error: onErrorHandler});
 
-
         },
 
         render: function () {
@@ -46,8 +45,11 @@ define([
                 _: _
             };
 
-            var compiledTemplate = _.template(jobsTemplate, data);
+
+            var template = _.template(jobsTemplate);
+            var compiledTemplate =template(data);
             this.$el.html(compiledTemplate);
+            //$("#page").append(compiledTemplate);  // Creates an empty list and full list.
 
             // Must add  tablesorter after collection is populated, or else we loose sort.
             $(document).ready(function () {
@@ -64,6 +66,8 @@ define([
             // add the sidebar
             var sidebarView = new SidebarView();
             sidebarView.render();
+
+            return this;
 
         },
         show_job_form: function () {

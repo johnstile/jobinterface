@@ -3,25 +3,14 @@ define([
     'backbone',
 ], function (_, Backbone) {
 
+
     var ConfigModel = Backbone.Model.extend({
-        schema: {
-            title: {
-                type: 'Select',
-                options: ['', 'Mr', 'Mrs', 'Ms']
-            },
-            name: 'Text',
-            email: {
-                validators: ['required', 'email']
-            },
-            birthday: 'Date',
-            password: 'Password',
-            notes: {
-                type: 'List',
-                listType: 'Text'
-            }
+        url: function () {
+            var base = 'confs';
+            if (this.isNew()) return base;
+            return base + (base.charAt(base.length - 1) == '/' ? '' : '/') + this.id;
         }
     });
-
     return ConfigModel;
 
 });

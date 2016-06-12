@@ -5,7 +5,7 @@ define([
     'backform'
 ], function ($, _, Backbone, Backform) {
 
-    var generate_my_form = function(model, fields, el) {
+    var generate_my_form = function(el, model, fields) {
         return new Backform.Form({
             el: $(el),
             model: model,
