@@ -5,6 +5,7 @@
 require.config({
     // Set dependency shortcuts
     paths: {
+        require: 'js/libs/require/require.js',
         jquery: 'libs/jquery/jquery-1.12.4',
         underscore: 'libs/underscore/underscore',
         backbone: 'libs/backbone/backbone',

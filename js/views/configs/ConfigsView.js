@@ -45,41 +45,130 @@ define([
             };
 
             var template = _.template(configsTemplate);
-            var compiledTemplate =template(data);
+            var compiledTemplate = template(data);
             this.$el.html(compiledTemplate);
 
             return this;
         },
         show_conf_form: function (e) {
             console.log("calling  show_conf_form");
-            /*
-             // Get clicked model from colleciton
-             element = $(e.currentTarget);
-             console.log("clicked:", element.attr('id'));
-             mymodel = this.collection.getByCid(element.attr('id'));
-             */
-                 // TOY PERSON
-            var person = new Backbone.Model({
-                id: 101,
-                firstName: "Annie",
-                lastName: "Employee"
-            });
-            // TOY FIELDS
+
+            // Get clicked model from colleciton
+            element = $(e.currentTarget);
+            console.log("clicked:", element.attr('id'));
+            mymodel = this.collection.get(element.attr('id'));
+            if (typeof mymodel == 'undefined') {
+                var mymodel = new Backbone.Model({
+                    urlRoot: '/confs',
+                    id: "new_file.json",
+                    conf: {
+                        "Netbooter": {
+                            "ipv4 address": "192.168.60.189",
+                            "off time": 5,
+                            "port 1": {
+                                "device mac address": "00:1C:AB:00:52:E8",
+                                "device ipv6 address": null,
+                                "g2 model": 816,
+                                "max boot time": 30
+                            }
+                        },
+                        "Parameters": {
+                            "network interface": "eth0",
+                            "power cycle enabled": true,
+                            "generator channels": [1, 2],
+                            "pass audio tolerance": 1,
+                            "delay input": 0,
+                            "never clear meters": true,
+                            "debug mode": false,
+                            "glitch test enabled": false,
+                            "stop on failure": false,
+                            "notch filter frequency": 1000,
+                            "iterations": 25,
+                            "delay output": 0,
+                            "delay matrix": 0,
+                            "glitch monitor time": 1,
+                            "pass audio test enabled": true,
+                            "glitch threshold": -90,
+                            "signal generator frequency": 1000,
+                            "notch filter quality": 10,
+                            "test output channels": ["odd", "even"],
+                            "pass audio level": -14
+                        }
+                    }
+                });
+            }
+
             var formFields = [
-                {name: "id", label: "Id", control: "uneditable-input"},
-                {name: "firstName", label: "First Name", control: "input"},
-                {name: "lastName", label: "Last Name", control: "input"},
+                {name: "id", label: "Id", control: "input"},
+                {name: 'conf.Netbooter.ipv4 address', label: "NB IP", control: "input"},
+                {name: 'conf.Netbooter.off time', label: "NB off time", control: "input"},
+                {name: 'conf.Netbooter.port 1.device mac address', label: "NB port 1 DUT mac", control: "input"},
+                {name: 'conf.Netbooter.port 1.device ipv6 address', label: "NB port 1 DUT ipv6", control: "input"},
+                {name: 'conf.Netbooter.port 1.g2 model', label: "NB port 1 DUT g2 model", control: "input"},
+                {name: 'conf.Netbooter.port 1.max boot time', label: "NB port 1 max boot time", control: "input"},
+                {name: 'conf.Parameters.network interface', label: "Param network interface", control: "input"},
+                {name: 'conf.Parameters.power cycle enabled', label: "Param power cycle enabled", control: "checkbox"},
+                {name: 'conf.Parameters.generator channels', label: "Param generator channels", control: "input"},
+                {name: 'conf.Parameters.pass audio tolerance', label: "Param pass audio tolerance", control: "input"},
+                {name: 'conf.Parameters.delay input', label: "Param delay input", control: "input"},
+                {name: 'conf.Parameters.never clear meters', label: "Param never clear meters", control: "checkbox"},
+                {name: 'conf.Parameters.debug mode', label: "Param debug mode", control: "checkbox"},
+                {name: 'conf.Parameters.glitch test enabled', label: "Param glitch test enabled", control: "checkbox"},
+                {name: 'conf.Parameters.stop on failure', label: "Param stop on failure", control: "checkbox"},
+                {
+                    name: 'conf.Parameters.notch filter frequency',
+                    label: "Param notch filter frequency",
+                    control: "input"
+                },
+                {name: 'conf.Parameters.iterations', label: "Param iterations", control: "input"},
+                {name: 'conf.Parameters.delay output', label: "Param delay output", control: "input"},
+                {name: 'conf.Parameters.delay matrix', label: "Param delay matrix", control: "input"},
+                {name: 'conf.Parameters.glitch monitor time', label: "Param glitch monitor time", control: "input"},
+                {
+                    name: 'conf.Parameters.pass audio test enabled',
+                    label: "Param pass audio test enabled",
+                    control: "checkbox"
+                },
+                {name: 'conf.Parameters.glitch threshold', label: "Param glitch threshold", control: "input"},
+                {
+                    name: 'conf.Parameters.signal generator frequency',
+                    label: "Param signal generator frequency",
+                    control: "input"
+                },
+                {name: 'conf.Parameters.notch filter quality', label: "Param notch filter quality", control: "input"},
+                {name: 'conf.Parameters.test output channels', label: "Param test output channels", control: "input"},
+                {name: 'conf.Parameters.pass audio level', label: "Param pass audio level", control: "input"},
+
                 {name: "submitButton", label: "Save to server", control: "button"}
             ];
             // Instantiate the form
             var form = new Backform.Form({
-                el: $("#form"),
+                el: $("#page"),
                 fields: formFields,
-                model: person
+                model: mymodel,
+                events: {
+                    "click #submit": function (e) {
+                        console.log("Hello");
+                        e.preventDefault();
+                        this.model.save()
+                            .done(function (result) {
+                                alert("Successful!");
+                            })
+                            .fail(function (error) {
+                                alert(error);
+                            });
+                        return false;
+                    },
+                    "click .submit" : function(e){
+                        console.log("yo");
+                    }
+                }
             });
-            // ERROR HERE
             form.render();
-            //$("#form").html(form.el);
+            mymodel.on("change", function () {
+                console.log("Changed")
+                $("#object").text(JSON.stringify(mymodel.toJSON(), null, 2));
+            }).trigger("change");
         }
 
     });
