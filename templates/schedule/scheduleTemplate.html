@@ -1,0 +1,77 @@
+<div class="main">
+    <h2>Schedule Test</h2>
+    <hr/>
+    <div id="page">
+    </div>
+</div>
+<script type="text/template" id="main_layout_template">
+    <div id="config-type-selector-area">Loading</div>
+    <div id="config-options-area"></div>
+</script>
+
+<script type="text/template" id="config_select_template">
+    <p>Select config
+        <select id="config-selector">
+             <option selected disabled>Choose Type</option>
+            <% _.each( config_types, function(key,value) { %>
+            <option value="<%= value %>"><%= key %></option>
+            <% }); %>
+        </select>
+    </p>
+</script>
+
+<!-- user message template -->
+<script type="text/template" id="add-form-template">
+    <form class="schedule_job_form">
+        <legend>Add Devices Under Test</legend>
+        <table class="table stripes4" border="1">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Serial Number</th>
+                <th>Station ID</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- initially this is empty, but grows with each 'Add' -->
+            <% duts.each( function(dut) { %>
+            <tr>
+                <td><button data-icon="delete" type="button" class="btn ui-icon ui-icon-delete ui-icon-shadow btn-delete-dut" id="<%= dut.get('sn') %>" value="<%= dut.get('sn') %>" >Del</button></td>
+                <td><%= dut.get('sn') %></td>
+                <td><%= dut.get('station') %></td>
+            </tr>
+            <% }); %>
+            <!-- Allow them to add another field. -->
+            <tr>
+                <td><button id="add_dut_btn" type="submit" class="btn btn-primary add_dut_btn" name="submit_btn" value="add">Add</button></td>
+                <td>
+                    <input type="text" name="sn">
+                </td>
+                <td>
+                    <input type="text" name="station">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="controls"></div>
+
+        </div>
+    </form>
+
+    <hr/>
+</script>
+
+<script type="text/template" id="upload-form-template">
+
+    <span class="file-input btn  btn-primary btn-file">
+      <input id="fileInput" type="file" name="fileInput">
+    </span>
+
+</script>
+
+<script type="text/template" id="start-btn-template">
+
+    <button id="start_test_btn" type="submit" class="btn btn-primary start_test_btn" name="submit_btn" value="start">Start</button>
+
+</script>
+

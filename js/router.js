@@ -7,13 +7,16 @@ define([
     'views/dashboard/DashBoardView',
     'views/jobs/JobsView',
     'views/configs/ConfigsView',
-], function ($, _, Backbone, JobsCollection, DashBoardView, JobsView, ConfigsView) {
+    'views/schedule/ScheduleView'
+], function ($, _, Backbone, JobsCollection, DashBoardView, JobsView, ConfigsView,ScheduleView) {
 
     var AppRouter = Backbone.Router.extend({
         routes: {
             // Define some URL routes
-            'jobs': 'showJobs',
+            'jobs': 'showJobs',              // All jobs page
+            'jobs/:id': 'showJob',           // One job queried by id
             'configs': 'showConfigs',
+            'schedule': 'showSchedule',
             // Default
             '*actions': 'defaultAction'
         }
@@ -33,10 +36,24 @@ define([
 
         });
 
+        app_router.on('route:showJob', function (id) {
+
+            console.log("Show a job:"+id);
+
+        });
+
         app_router.on('route:showConfigs', function () {
 
             var configsView = new ConfigsView();
             //configsView.render();
+
+        });
+
+        app_router.on('route:showSchedule', function () {
+
+
+            var scheduleView = new ScheduleView();
+            scheduleView.render();
 
         });
 

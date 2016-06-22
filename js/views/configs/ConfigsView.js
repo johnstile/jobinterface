@@ -5,7 +5,7 @@ define([
     'backform',
     'collections/configs/ConfigsCollection',
     'models/config/ConfigModel',
-    'text!templates/configs/configsTemplate.html'
+    'text!templates/configs/configsTemplate.html', 'bootstrap'
 ], function ($, _, Backbone, Backform, ConfigsCollection, ConfigModel, configsTemplate) {
 
     //var configsListView;
@@ -17,7 +17,7 @@ define([
             // using a class
             "click .conf-edit-button": "show_conf_form",
             // using an id
-            "click #conf-edit-button": "show_conf_form"
+            "click #conf-edit-button": "show_conf_form",
         },
         initialize: function () {
 
@@ -41,7 +41,7 @@ define([
 
             var data = {
                 confs: this.collection.models,
-                _: _
+                //_: _
             };
 
             var template = _.template(configsTemplate);
@@ -138,39 +138,27 @@ define([
                 {name: 'conf.Parameters.notch filter quality', label: "Param notch filter quality", control: "input"},
                 {name: 'conf.Parameters.test output channels', label: "Param test output channels", control: "input"},
                 {name: 'conf.Parameters.pass audio level', label: "Param pass audio level", control: "input"},
+                {name: 'foobar', id:'foobar', label: 'foobar', control: "button"}
 
-                {name: "submitButton", label: "Save to server", control: "button"}
             ];
             // Instantiate the form
-            var form = new Backform.Form({
+            var form = new Backform.bootstrap2({
                 el: $("#page"),
                 fields: formFields,
                 model: mymodel,
                 events: {
-                    "click #submit": function (e) {
-                        console.log("Hello");
-                        e.preventDefault();
-                        this.model.save()
-                            .done(function (result) {
-                                alert("Successful!");
-                            })
-                            .fail(function (error) {
-                                alert(error);
-                            });
-                        return false;
+                    "submit": function (e) {
+                        console.log("fooo")
                     },
-                    "click .submit" : function(e){
-                        console.log("yo");
-                    }
                 }
             });
             form.render();
-            mymodel.on("change", function () {
-                console.log("Changed")
-                $("#object").text(JSON.stringify(mymodel.toJSON(), null, 2));
-            }).trigger("change");
+            form.$el.on("submit", function() {alert("Browser validation passed")});
+
         }
 
     });
+
     return ConfigsView;
-});
+})
+;

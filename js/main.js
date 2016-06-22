@@ -10,6 +10,7 @@ require.config({
         underscore: 'libs/underscore/underscore',
         backbone: 'libs/backbone/backbone',
         backform: 'libs/backbone/backform',
+        bootstrap: 'libs/bootstrap/bootstrap',
         'jquery.tablesorter.combined': 'libs/jquery/jquery.tablesorter.combined',
         templates: '../templates'
     },
@@ -30,7 +31,10 @@ require.config({
         , 'backform' :{
             deps: ['backbone'],
             exports: 'Backform'
-        }, 
+        }
+        , 'bootstrap': {
+            deps: ['jquery']
+        }
     }
 });
 
