@@ -44,11 +44,11 @@ h1{
   margin: 0;
 }
 #page {
-  border-top: 1px solid #ebebeb;
-  border-bottom: 1px solid #ebebeb;
-  min-height: 400px;
-  padding: 20px;
-  overflow: hidden;
+  /* border-top: 1px solid #ebebeb; */
+  /* border-bottom: 1px solid #ebebeb; */
+  /* min-height: 400px; */
+  /* padding: 20px; */
+  /* overflow: hidden; */
 }
 
 #page  {

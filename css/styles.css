@@ -3,4 +3,6 @@
 @import url('bootstrap.css');
 /* tablesorter */
 @import url('theme.default.css'); 
+/* jquery */
+@import url('jquery-ui.css'); 
 

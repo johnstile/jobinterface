@@ -3,7 +3,9 @@ define([
     'backbone'
 ], function (_, Backbone) {
 
-    var JobModel = Backbone.Model.extend({});
+    var JobModel = Backbone.Model.extend({
+        urlRoot: 'jobs'
+    });
 
     return JobModel;
 

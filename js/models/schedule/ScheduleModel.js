@@ -3,14 +3,7 @@ define([
     'backbone'
 ], function (_, Backbone) {
 
-    var ScheduleModel = Backbone.Model.extend({
-
-        defaults: {
-            sn: "Scan Chassis",
-            station: "Scan Station"
-        }
-
-    });
+    var ScheduleModel = Backbone.Model.extend({});
 
     return ScheduleModel;
 

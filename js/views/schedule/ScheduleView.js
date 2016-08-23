@@ -4,9 +4,10 @@ define([
     'backbone',
     'collections/schedules/SchedulesCollection',
     'models/schedule/ScheduleModel',
+    'models/job/JobModel',
     'text!templates/schedule/scheduleTemplate.html',
     'jquery.tablesorter.combined'
-], function ($, _, Backbone, ScheduleCollection, ScheduleModel, scheduleTemplate) {
+], function ($, _, Backbone, ScheduleCollection, ScheduleModel, JobModel, scheduleTemplate) {
 
     // Converts form submission to json object
     // REF: https://github.com/thomasdavis/backbonetutorials/tree/gh-pages/videos/beginner
@@ -31,11 +32,12 @@ define([
         events: {
             // <event-object> <element> : <method to call> passing event-object as arg to method.
             "click .btn-delete-dut": "delete_dut", // Remove dut from collection
-            "click #config-selector": "update_form", // Drop down list of config options
+            "change #config-selector": "update_form", // Drop down list of config options
             "submit .schedule_job_form": "form_submitted", // Determine button that submitted form
             "change #fileInput": "upload_config" // Upload ad-hoc config file
         },
         initialize: function () {
+            that = this;
             // Holds form data (sn and station)
             this.dutCollection = new ScheduleCollection();
             // Type of tests. 2 static options, one just uploads complete config file.
@@ -45,6 +47,15 @@ define([
                 "upload_config": "Upload your config"
             };
             this.config_choice = null;
+            // Get list station ports, and populate the drop down option
+            this.station_ports = [];
+            $.get(
+                'stationsports',
+                {},
+                function (station_ports) {
+                    that.station_ports = station_ports;
+                }
+            );
         },
         render: function () {
             $('.menu li').removeClass('active');
@@ -60,7 +71,7 @@ define([
             console.log("Show main layout");
             template = _.template(this.$el.find("#main_layout_template").html());
             var compiledTemplate = template();
-            this.$el.find("#page").html(template);
+            this.$el.find("#page").html(compiledTemplate);
         },
         show_controls: function () {
             console.log("Draw form buttons");
@@ -93,9 +104,14 @@ define([
         },
         show_add_dut_form: function () {
             console.log("Show Add Form");
+            // Show input fields for Serial Number and Station
             template = _.template(this.$el.find("#add-form-template").html());
             var compiledTemplate = template(duts = this.dutCollection);
-            this.$el.find("#config-options-area").html(compiledTemplate)
+            this.$el.find("#config-options-area").html(compiledTemplate);
+            // Populate Station data with drop down list showing stations
+            template = _.template($("#port_select_template").html());
+            compiledTemplate = template(ports = this.station_ports);
+            $(".port_selector").html(compiledTemplate);
 
             // Add Start button if at least one unit is present.
             this.show_controls()
@@ -142,12 +158,31 @@ define([
             // Get form data
             form_data = $(e.currentTarget).serializeObject();
 
-            // Do not allow empty fields
-            if ( (form_data['sn'] === "") || (form_data['station'] === "")){
-                alert("fiels can't be empty!");
+            // Do not allow no selection
+            if (!('station' in form_data) || !('sn' in form_data)) {
+                alert("Serial Number and Station can not be empty!");
                 return;
             }
 
+            // Do not allow empty fields
+            if ((form_data['sn'] === "") || (form_data['station'] === "")) {
+                alert("fiels can't be empty!");
+                return;
+            }
+            // No duplicate serial numbers
+            if (this.dutCollection.find(function (model) {
+                    return model.get('sn') === form_data['sn'];
+                })) {
+                alert("No duplicate serial numbers");
+                return;
+            }
+            // No duplicate station ids
+            if (this.dutCollection.find(function (model) {
+                    return model.get('station') === form_data['station'];
+                })) {
+                alert("No duplicate station IDs");
+                return;
+            }
             // Crate a new model from form data
             var new_dut = new ScheduleModel(form_data);
 
@@ -179,31 +214,23 @@ define([
         start_test: function (e) {
             e.preventDefault();
             console.log("Start Test Clicked");            // Get form data
-            console.log(this.dutCollection);
-            console.log(this.config_choice);
-
-            // Wrap the collection and conf-type into a model and send to server.
-            var MyCollectionWrapper = Backbone.Model.extend({
-                url: "/jobs",
-                defaults: {
-                    duts: null,
-                    conf: null,
-                }
-            });
-            posting = new MyCollectionWrapper({duts: this.dutCollection, conf: this.config_choice});
-            console.log(posting);
-
-            // Send to server
-            posting.save([], {
-                success: function (model, response) {
-                    console.log('success');
+            //console.log(this.dutCollection);
+            //console.log(this.config_choice);
+            //console.log("New Model");
+            var new_job = new JobModel({duts: this.dutCollection, conf: this.config_choice});
+            //console.log("Post to server");
+            $.jobsCollection.create(new_job, {
+                error : function(model, response){
+                    //console.log(response);
+                    alert(response.status);
                 },
-                error: function () {
-                    console.log('error');
+                success: function(model, response){
+                    //console.log(response);
+                    alert(response.status);
                 }
             });
+            this.render()
 
-            //return false;
         },
         show_file_upload_form: function () {
             console.log("show upload form");
@@ -226,6 +253,8 @@ define([
             var fd = new FormData();
             fd.append('file', upload_config_file);
 
+            // For a ad-hoc job we upload a file.
+            // This is not very backbone like.
             $.ajax({
                 url: 'jobs', //+ this.model.get('upload_config_file data: data,
                 //cache: false,
@@ -235,10 +264,10 @@ define([
                 type: 'POST',
                 success: function (fd) {
                     //$('#loadingModal').modal('hide');
-                    alert("success");
+                    alert("Job Started");
                 },
                 error: function (fd) {
-                    alert('no upload');
+                    alert('Failed');
                     //$('#loadingModal').modal('hide');
                 }
             });

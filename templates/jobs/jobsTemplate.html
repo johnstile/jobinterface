@@ -1,34 +1,71 @@
 <div class="main">
     <h2>Jobs</h2>
-    <div id="job-ctrl">
-        <input type="button" id="job-new-button" value="New Job" />
-    </div>
     <div id="jobs-list">
         <table border=1 id="jobsTable" class="tablesorter">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Number</th>
-                <th>State</th>
-                <th>Result</th>
+                <th>Action</th>
+                <th>Id</th>
+                <th>Status</th>
+                <th>Conf</th>
+                <th>Elapsed</th>
                 <th>Serial</th>
-                <th>Date</th>
+                <th>Start Date</th>
+                <th>Logs</th>
                 <th>URL</th>
-                <th>Artifacts</th>
             </tr>
             </thead>
             <tfoot>
             <tbody>
-            <% _.each(jobs, function(job){ %>
+            <% _.each(jobs, function(job){
+            var id = job['attributes']['id'] || "";
+            var build_is_running = job['attributes']['build_is_running'] || "";
+            var build_status = job['attributes']['build_status'] || "";
+            var conf_file = job['attributes']['conf_file'] || "";
+            var duration = job['attributes']['duration'] || "";
+            var serialno = job['attributes']['serialno'] || "";
+            var start_date = job['attributes']['start_date'] || "";
+            var url = job['attributes']['url'] || "";
+
+            %>
             <tr>
-                <td><%= job.get("job_name") %></td>
-                <td><%= job.get("build_number") %></td>
-                <td><%= job.get("state") %></td>
-                <td><%= job.get("result") %></td>
-                <td><%= job.get("serialno") %></td>
-                <td><%= job.get("build_date") %></td>
-                <td><a href="<%= job.get("url")%>">url</a></td>
-                <td><%= job.get("artifacts") %></td>
+                <td>
+                    <span style="white-space:nowrap;">
+                        <% if ( build_is_running ) { %>
+                        <button type="button" class="btn btn-primary btn-stop-build" data-id="<%= id %>" >Stop</button>
+                        <% } else { %>
+                        <button type="button" class="btn btn-primary btn-delete-build" data-id="<%= id %>" >Del</button>
+                        <% } %>
+                    </span>
+                </td>
+                <td>
+                    <a href="jobconsole/<%= id %>"><%= id %></a>
+                </td>
+                <td>
+                    <% if (build_status == 'FAILURE' ) { %>
+                        <span style="color: red;"><%= build_status %></span>
+                    <% } else if (build_is_running) { %>
+                        Running
+                    <% } %>
+                </td>
+                <td>
+                    <a href="scriptlogs/<%= start_date %>/<%= conf_file %>"><%= conf_file %></a>
+                </td>
+                <td>
+                    <%= duration %>
+                </td>
+                <td>
+                    <%= serialno %>
+                </td>
+                <td>
+                    <%= start_date %>
+                </td>
+                <td>
+                    <a href="scriptlogs/<%= start_date %>/logs/">Scritp Logs</a>
+                </td>
+                <td>
+                    <a href="<%= url %>">url</a>
+                </td>
             </tr>
             <% }); %>
             </tbody>

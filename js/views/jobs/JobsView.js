@@ -8,13 +8,15 @@ define([
     'views/jobs/JobFormView',
     'text!templates/jobs/jobsTemplate.html',
     'jquery.tablesorter.combined'
-], function ($, _, Backbone, SidebarView, JobModel, JobsCollection, JobFormView,jobsTemplate) {
+], function ($, _, Backbone, SidebarView, JobModel, JobsCollection, JobFormView, jobsTemplate) {
 
     var JobsView = Backbone.View.extend({
 
         el: $("#page"),
         events: {
-            "click #job-new-button": "show_job_form"
+            "click #job-new-button": "show_job_form",
+            "click .btn-delete-build": "delete_job", // Remove job
+            "click .btn-stop-build": "stop_job" // Stop job
             //"click .button-down": "tranistionDown",
         },
         initialize: function () {
@@ -32,6 +34,7 @@ define([
             that.collection = $.jobsCollection;
             that.collection.fetch({success: onDataHandler, error: onErrorHandler});
 
+
         },
 
         render: function () {
@@ -47,7 +50,7 @@ define([
 
 
             var template = _.template(jobsTemplate);
-            var compiledTemplate =template(data);
+            var compiledTemplate = template(data);
             this.$el.html(compiledTemplate);
             //$("#page").append(compiledTemplate);  // Creates an empty list and full list.
 
@@ -71,10 +74,57 @@ define([
 
         },
         show_job_form: function () {
-            console.log("foo")
+            console.log("show_job_form")
             var jobModel = new JobModel();
-            var jobFormView = new JobFormView({ model: jobModel});
+            var jobFormView = new JobFormView({model: jobModel});
             jobFormView.render();
+        },
+        delete_job: function (e) {
+            console.log("delete_job");
+            that = this;
+            var $btn = $(document.activeElement);
+            var id = parseInt($btn.attr("data-id"));
+
+            // Must get
+            console.log(this.collection);
+            console.log("id:", id);
+
+            // Find model in collection with these attributes
+            var model = this.collection.findWhere({ id: id });
+            console.log(model);
+            // Send DELETE
+            model.destroy(
+                {
+                    success: function (model, response) {
+                        console.log("Success");
+                        //that.collection.remove(model);
+                        //that.show_stations();
+                        that.render()
+                    },
+                    error: function (model, response) {
+                        console.log("Error");
+                    }
+                }
+            );
+
+            //this.collection
+        },
+        stop_job: function(e) {
+            console.log("stop_job")
+            that = this;
+            var $btn = $(document.activeElement);
+            var id = parseInt($btn.attr("data-id"));
+
+            // Must get
+            console.log(this.collection);
+            console.log("id:", id);
+
+            // Find model in collection with these attributes
+            var model = this.collection.findWhere({ id: id });
+            console.log(model);
+            model.set({"action": 'stop'});
+            // Send PUT
+            model.save();
         }
     });
 
