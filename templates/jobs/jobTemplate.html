@@ -1,0 +1,40 @@
+<div class="main">
+    <h2>Duts</h2>
+    <table border=1 id="jobTable" class="tablesorter">
+        <thead>
+        <tr>
+            <th>SN</th>
+            <th>Iterations</th>
+            <th>Pass/Fail</th>
+            <th>Complete</th>
+            <th>Power</th>
+            <th>Glitch</th>
+            <th>Audio</th>
+            <th>X Input</th>
+            <th>x Output</th>
+            <th>Phase Pair</th>
+            <th>Phase All Pair</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tbody>
+        <% _.each(dutCollection, function(dut) {
+        %>
+        <tr>
+            <td><%= dut.get('id') %></td>
+            <td><%= dut.get('iteration') %></td>
+            <td><%= dut.get('dut_failed') %></td>
+            <td><%= dut.get('all_iterations_complete') %></td>
+            <td><%= dut.get('power_cycle_fail') %></td>
+            <td><%= dut.get('glitch_test_fail') %></td>
+            <td><%= dut.get('pass_audio_fail') %></td>
+            <td><%= dut.get('crosstalk_input_test_fail') %></td>
+            <td><%= dut.get('crosstalk_output_test_fail') %></td>
+            <td><%= dut.get('phase_test_between_pairs_fail') %></td>
+            <td><%= dut.get('phase_test_between_all_pairs_fail') %></td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+</div>
+

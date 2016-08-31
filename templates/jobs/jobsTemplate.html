@@ -6,10 +6,10 @@
             <tr>
                 <th>Action</th>
                 <th>Id</th>
-                <th>Status</th>
+                <th>Job Status</th>
                 <th>Conf</th>
                 <th>Elapsed</th>
-                <th>Serial</th>
+                <th>DUT Status</th>
                 <th>Start Date</th>
                 <th>Logs</th>
                 <th>URL</th>
@@ -23,7 +23,7 @@
             var build_status = job['attributes']['build_status'] || "";
             var conf_file = job['attributes']['conf_file'] || "";
             var duration = job['attributes']['duration'] || "";
-            var serialno = job['attributes']['serialno'] || "";
+            var status = job['attributes']['status'] || "";
             var start_date = job['attributes']['start_date'] || "";
             var url = job['attributes']['url'] || "";
 
@@ -49,19 +49,19 @@
                     <% } %>
                 </td>
                 <td>
-                    <a href="scriptlogs/<%= start_date %>/<%= conf_file %>"><%= conf_file %></a>
+                    <a href="glitchlogs/<%= start_date %>/<%= conf_file %>"><%= conf_file %></a>
                 </td>
                 <td>
                     <%= duration %>
                 </td>
                 <td>
-                    <%= serialno %>
+                    <a href="#/jobs/<%= start_date %>/<%= id %>">Status</a>
                 </td>
                 <td>
                     <%= start_date %>
                 </td>
                 <td>
-                    <a href="scriptlogs/<%= start_date %>/logs/">Scritp Logs</a>
+                    <a href="glitchlogs/<%= start_date %>/logs/">Script Logs</a>
                 </td>
                 <td>
                     <a href="<%= url %>">url</a>
