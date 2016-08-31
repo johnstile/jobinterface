@@ -1,0 +1,27 @@
+[
+    {
+        "alias": "STAIRS TOP",
+        "id": "aa96a614-a8d0-4a76-9b47-60381af15274",
+        "ip": "172.24.3.6"
+    },
+    {
+        "alias": "OVEN",
+        "id": "ed3c1dfa-451e-43e4-859d-c42b520c11ce",
+        "ip": "172.24.5.3"
+    },
+    {
+        "alias": "STAIRS BOTTOM",
+        "id": "dc493f68-511e-4d61-afb9-d4c1c2e1ae72",
+        "ip": "172.24.3.9"
+    },
+    {
+        "alias": "DESK",
+        "id": "e91fd1bf-4ab8-4523-9564-4de3b664333f",
+        "ip": "192.168.60.189"
+    },
+    {
+        "alias": "GLITCH RACK",
+        "id": "bac1dea4-d9c3-4564-905c-3b4e137680ec",
+        "ip": "192.168.0.11"
+    }
+]

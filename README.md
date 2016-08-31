@@ -20,6 +20,8 @@
 
 [Backform.js](https://amiliaapp.github.io/backform/): Handle forms client side.
 
+[backbone.poller.js](https://github.com/uzikilon/backbone-poller): Polling for updates
+
 ### Directory Organization
 ```.
 +-- css
@@ -29,30 +31,35 @@
 |   +-- app.js            Loads router
 |   +-- router.js         Sets routes, starts Backbone history
 |   +-- collections       Collections are made of Models
-|   |   +-- configs
-|   |   +-- jobs
+|   |   +-- duts          List of Devices Under Test.
+|   |   +-- jobs          List of script instances
+|   |   +-- schedules     List of duts to be used in a Job. 
+|   |   +-- stations      List of remote power switches
 |   +-- libs              3rd party code 
 |   |   +-- backbone
 |   |   +-- jquery
 |   |   +-- require
 |   |   +-- underscore
 |   +-- models            Objects should be in Models
-|   |   +-- config
-|   |   +-- job
-|   |   +-- owner
+|   |   +-- dut           Device Under Test
+|   |   +-- job           A Jenkins build 
+|   |   +-- schedule      A set of duts, configs, and remote power switches 
+|   |   +-- station       A remote power switch ip and name
 |   +-- views             Views bind Collections or Models, and display using templates
-|       +-- configs
-|       +-- dashboard
-|       +-- jobs
-|       +-- sidebar
+|       +-- dashboard     Shows summery. Useless at the moment.
+|       +-- jobs          Shows all Jenkins builds
+|       +-- schedule      Show form to scheudle a jenkins build
+|       +-- stations      Shows the current list of remote power siwtches and their names & ip.
+|       +-- sidebar       Not used
 +-- templates             HTML used to present the Views
-|   +-- configs
 |   +-- dashboard
 |   +-- jobs
+|   +-- schedule
+|   +-- stations
 |   +-- sidebar
 +-- sample_data           Sample data 
 |   +--  jobs.json        Sample of colleciton request for /jobs
-|   +--  configs.json     Sample of colleciton request for /confs
+|   +--  stations.json    Sample of colleciton request for /stations
 +-- index.html            Start of load, base anchors for content.
 ```
 ### App Loading

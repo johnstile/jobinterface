@@ -1,0 +1,482 @@
+[
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160831_115922.json"
+        ],
+        "duration": "0:33:31.324000",
+        "id": 74,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160831_115922"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/74/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160831_095238.json"
+        ],
+        "duration": "1:52:14.124000",
+        "id": 73,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160831_095238"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/73/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160830_111128.json"
+        ],
+        "duration": "0:36:54.043000",
+        "id": 72,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160830_111128"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/72/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160826_172126.json"
+        ],
+        "duration": "1:46:18.682000",
+        "id": 71,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160826_172126"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/71/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160824_163648.json"
+        ],
+        "duration": "0:00:02.412000",
+        "id": 70,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160824_163648"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/70/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160824_113538.json"
+        ],
+        "duration": "1:52:03.542000",
+        "id": 69,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160824_113538"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/69/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160822_145540.json"
+        ],
+        "duration": "0:00:02.715000",
+        "id": 68,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160822_145540"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/68/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160822_145403.json"
+        ],
+        "duration": "0:00:02.715000",
+        "id": 67,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160822_145403"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/67/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160822_145113.json"
+        ],
+        "duration": "0:00:02.825000",
+        "id": 66,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160822_145113"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/66/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160822_144206.json"
+        ],
+        "duration": "0:00:02.787000",
+        "id": 65,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160822_144206"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/65/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160822_142004.json"
+        ],
+        "duration": "0:00:02.667000",
+        "id": 64,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160822_142004"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/64/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160822_140707.json"
+        ],
+        "duration": "0:00:02.681000",
+        "id": 63,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160822_140707"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/63/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160822_140423.json"
+        ],
+        "duration": "0:00:02.970000",
+        "id": 62,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160822_140423"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/62/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_184226.json"
+        ],
+        "duration": "0:00:02.815000",
+        "id": 61,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_184226"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/61/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_183536.json"
+        ],
+        "duration": "0:00:03.611000",
+        "id": 60,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_183536"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/60/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_182600.json"
+        ],
+        "duration": "0:00:00.418000",
+        "id": 59,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_182600"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/59/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_180752.json"
+        ],
+        "duration": "0:00:00.355000",
+        "id": 58,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_180752"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/58/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_180427.json"
+        ],
+        "duration": "0:00:00.330000",
+        "id": 57,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_180427"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/57/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_174328.json"
+        ],
+        "duration": "0:00:00.357000",
+        "id": 56,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_174328"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/56/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_173146.json"
+        ],
+        "duration": "0:00:00.278000",
+        "id": 55,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_173146"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/55/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160819_171534.json"
+        ],
+        "duration": "0:00:00.544000",
+        "id": 54,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160819_171534"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/54/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_150815.json"
+        ],
+        "duration": "0:00:00.068000",
+        "id": 53,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_150815"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/53/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_150708.json"
+        ],
+        "duration": "0:00:00.065000",
+        "id": 52,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_150708"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/52/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_150521.json"
+        ],
+        "duration": "0:00:00.068000",
+        "id": 51,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_150521"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/51/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_150159.json"
+        ],
+        "duration": "0:00:00.046000",
+        "id": 50,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_150159"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/50/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_145807.json"
+        ],
+        "duration": "0:00:00.043000",
+        "id": 49,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_145807"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/49/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_145718.json"
+        ],
+        "duration": "0:00:00.052000",
+        "id": 48,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_145718"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/48/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_145332.json"
+        ],
+        "duration": "0:00:00.056000",
+        "id": 47,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_145332"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/47/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_144959.json"
+        ],
+        "duration": "0:00:00.062000",
+        "id": 46,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_144959"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/46/testReport/api/python"
+    },
+    {
+        "build_is_running": false,
+        "build_status": "FAILURE",
+        "conf_file": [
+            "te_glitch_test_multi.20160714_144843.json"
+        ],
+        "duration": "0:00:00.071000",
+        "id": 45,
+        "serialno": [
+            "00000000"
+        ],
+        "start_date": [
+            "20160714_144843"
+        ],
+        "url": "http://192.168.60.157/jenkins/job/g2automated_test/45/testReport/api/python"
+    }
+]
