@@ -5,36 +5,35 @@ define([
     'views/sidebar/SidebarView',
     'models/job/JobModel',
     'collections/jobs/JobsCollection',
-    'views/jobs/JobFormView',
     'text!templates/jobs/jobsTemplate.html',
     'jquery.tablesorter.combined'
-], function ($, _, Backbone, SidebarView, JobModel, JobsCollection, JobFormView, jobsTemplate) {
+], function ($, _, Backbone, SidebarView, JobModel, JobsCollection, jobsTemplate) {
+
+    // Enable/disable logging
+    var gDebug = true;
+
+    function fLog(rMsg) {
+        // If the browser does not have a console, don't print to it
+        if (gDebug && window.console) {
+            console.log(rMsg);
+        }
+    }
 
     var JobsView = Backbone.View.extend({
 
         el: $("#page"),
         events: {
-            "click #job-new-button": "show_job_form",
             "click .btn-delete-build": "delete_job", // Remove job
             "click .btn-stop-build": "stop_job" // Stop job
-            //"click .button-down": "tranistionDown",
         },
         initialize: function () {
-
-            var that = this;
-
-            var onErrorHandler = function (collection, response, options) {
-                alert(response.responseText);
-            };
-
-            var onDataHandler = function (collection, response, options) {
-                that.render();
-            };
-
-            that.collection = $.jobsCollection;
-            that.collection.fetch({success: onDataHandler, error: onErrorHandler});
-
-
+            fLog("init JobsView");
+            fLog("instantiate jobsCollection");
+            this.jobsCollection = new JobsCollection();
+            fLog("listenTo jobsCollection");
+            this.listenTo(this.jobsCollection, "reset change add remove", this.render);
+            fLog("fetch jobsCollection");
+            this.jobsCollection.fetch();
         },
 
         render: function () {
@@ -42,13 +41,11 @@ define([
             $('.menu li').removeClass('active');
             $('.menu li a[href="' + window.location.hash + '"]').parent().addClass('active');
 
-            console.log(this.collection);
+            fLog(this.jobsCollection);
             var data = {
-                jobs: this.collection.models,
+                jobs: this.jobsCollection.models,
                 _: _
             };
-
-
             var template = _.template(jobsTemplate);
             var compiledTemplate = template(data);
             this.$el.html(compiledTemplate);
@@ -73,60 +70,39 @@ define([
             return this;
 
         },
-        show_job_form: function () {
-            console.log("show_job_form")
-            var jobModel = new JobModel();
-            var jobFormView = new JobFormView({model: jobModel});
-            jobFormView.render();
-        },
         delete_job: function (e) {
-            console.log("delete_job");
+            fLog("delete_job");
             that = this;
             var $btn = $(document.activeElement);
             var id = parseInt($btn.attr("data-id"));
 
             // Must get
-            console.log(this.collection);
-            console.log("id:", id);
+            fLog(this.collection);
+            fLog("id:", id);
 
             // Find model in collection with these attributes
-            var model = this.collection.findWhere({ id: id });
-            console.log(model);
+            var model = this.jobsCollection.findWhere({id: id});
+            fLog(model);
             // Send DELETE
-            model.destroy(
-                {
-                    success: function (model, response) {
-                        console.log("Success");
-                        //that.collection.remove(model);
-                        //that.show_stations();
-                        that.render()
-                    },
-                    error: function (model, response) {
-                        console.log("Error");
-                    }
-                }
-            );
-
-            //this.collection
+            model.destroy();
         },
-        stop_job: function(e) {
-            console.log("stop_job")
+        stop_job: function (e) {
+            fLog("stop_job")
             that = this;
             var $btn = $(document.activeElement);
             var id = parseInt($btn.attr("data-id"));
 
             // Must get
-            console.log(this.collection);
-            console.log("id:", id);
+            fLog(this.jobsCollection);
+            fLog("id:", id);
 
             // Find model in collection with these attributes
-            var model = this.collection.findWhere({ id: id });
-            console.log(model);
+            var model = this.jobsCollection.findWhere({id: id});
+            fLog(model);
             model.set({"action": 'stop'});
             // Send PUT
             model.save();
         }
     });
-
     return JobsView;
 });

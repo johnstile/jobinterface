@@ -6,5 +6,4 @@ define([
     var ScheduleModel = Backbone.Model.extend({});
 
     return ScheduleModel;
-
 });

@@ -1,4 +1,4 @@
-## Clinet side application to work with jobs and configs
+## Browser application to view, stop, and start test scripts on the server.
 
 ### Purpose:
   Web interface to a job controller daemon.
@@ -35,11 +35,20 @@
 |   |   +-- jobs          List of script instances
 |   |   +-- schedules     List of duts to be used in a Job. 
 |   |   +-- stations      List of remote power switches
+|   |
 |   +-- libs              3rd party code 
 |   |   +-- backbone
+|   |   |   +-- backbone.js         Version 1.3.3
+|   |   |   +-- backbone.poller.js  For Polling collection
+|   |   |   +-- bbackform.js        For fancy forms
 |   |   +-- jquery
+|   |   |   +-- jquery-1.12.4.js    Version 1.12.4
+|   |   |   +-- jquery.tablesorter.combined.js  For fancy tables
 |   |   +-- require
+|   |   |   +-- require.js          Version 2.2.0
 |   |   +-- underscore
+|   |       +-- underscore.js       Version 1.8.3
+|   |
 |   +-- models            Objects should be in Models
 |   |   +-- dut           Device Under Test
 |   |   +-- job           A Jenkins build 

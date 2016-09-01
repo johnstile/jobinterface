@@ -29,31 +29,34 @@ define([
             _.extend(this, _.pick(options, "build"));
             _.bindAll(this, 'render');
             that = this;
+
             // Get the job_dir, pass to collection
             this.options = options;
             this.job_dir = this.options['job_dir'];
             this.build = this.options['build'];
 
-            console.log("init JobView with: ", this.job_dir);
+            fLog("init JobView with: ", this.job_dir);
+            fLog("instantiate dutCollection");
             this.dutCollection = new DutCollection({job_dir: this.job_dir});
+            fLog("listenTo dutCollection");
+            this.listenTo(this.dutCollection, "reset change add remove", this.render);
 
-            this.dutCollection.fetch().done(function () {
-                that.render();
-            });
+            // Poller handles fetch only, this.listenTo above handles render
             var options = {
                 delay: 3000, // default 1000ms
                 delayed: 3000, // run after a delayed (can be true)
                 continueOnError: true // do not stop on error event
             };
             this.poller = Poller.get(this.dutCollection, options);
-            this.poller.on('success', function (model) {
+            this.listenTo(this.poller, 'success', function (model) {
                 console.info('another successful fetch!');
-                that.render();
+                // Check if complete
+                that.is_job_running();
             });
-            this.poller.on('complete', function (model) {
+            this.listenTo(this.poller, 'complete', function (model) {
                 console.info('hurray! we are done!');
             });
-            this.poller.on('error', function (model) {
+            this.listenTo(this.poller, 'error', function (model) {
                 console.error('oops! something went wrong');
             });
             this.poller.start();
@@ -61,7 +64,7 @@ define([
         is_job_running: function () {
             fLog("calling JobView is_job_running()");
             // Test to defeat polling
-            var result = this.dutCollection.where({all_iterations_complete:0});
+            var result = this.dutCollection.where({all_iterations_complete: 0});
             fLog("result.length:" + result.length);
             if (result.length > 0) {
                 fLog("Not all DUTS Complete. Continue Polling");
@@ -71,16 +74,8 @@ define([
             }
         },
         render: function () {
-            fLog("calling JobView render()");
-
-            //$('.menu li').removeClass('active');
-            //$('.menu li a[href="' + window.location.hash + '"]').parent().addClass('active');
-
             fLog("Called JobView.render()");
             fLog(JSON.stringify(this.dutCollection));
-
-            // Test to defeat polling
-            this.is_job_running();
 
             var template = _.template(jobTemplate);
             var compiledTemplate = template({dutCollection: this.dutCollection.models});

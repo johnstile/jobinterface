@@ -9,22 +9,21 @@ define([
 
     var DashBoardView = Backbone.View.extend({
         el: $("#page"),
-
+        initialize: function () {
+            console.log("init DashBoardView");
+            this.render();
+        },
         render: function () {
 
             $('.menu li').removeClass('active');
             $('.menu li a[href="#"]').parent().addClass('active');
 
             this.$el.html(dashboardTemplate);
-
             var sidebarView = new SidebarView();
             sidebarView.render();
-
             return this;
         }
-
     });
 
     return DashBoardView;
-
 });

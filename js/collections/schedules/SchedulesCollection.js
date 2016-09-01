@@ -6,10 +6,8 @@ define([
 ], function ($, _, Backbone, ScheduleModel) {
 
     var SchedulesCollection = Backbone.Collection.extend({
-
         url: 'jobs',
         model: ScheduleModel
-
     });
 
     return SchedulesCollection;

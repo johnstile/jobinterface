@@ -5,9 +5,20 @@ define([
     'collections/schedules/SchedulesCollection',
     'models/schedule/ScheduleModel',
     'models/job/JobModel',
+    'collections/jobs/JobsCollection',
     'text!templates/schedule/scheduleTemplate.html',
     'jquery.tablesorter.combined'
-], function ($, _, Backbone, ScheduleCollection, ScheduleModel, JobModel, scheduleTemplate) {
+], function ($, _, Backbone, ScheduleCollection, ScheduleModel, JobModel, JobsCollection, scheduleTemplate) {
+
+    // Enable/disable logging
+    var gDebug = true;
+
+    function fLog(rMsg) {
+        // If the browser does not have a console, don't print to it
+        if (gDebug && window.console) {
+            console.log(rMsg);
+        }
+    }
 
     // Converts form submission to json object
     // REF: https://github.com/thomasdavis/backbonetutorials/tree/gh-pages/videos/beginner
@@ -54,6 +65,7 @@ define([
                 {},
                 function (station_ports) {
                     that.station_ports = station_ports;
+                    that.render();
                 }
             );
         },
@@ -68,13 +80,13 @@ define([
             return this;
         },
         show_main: function () {
-            console.log("Show main layout");
+            fLog("Show main layout");
             template = _.template(this.$el.find("#main_layout_template").html());
             var compiledTemplate = template();
             this.$el.find("#page").html(compiledTemplate);
         },
         show_controls: function () {
-            console.log("Draw form buttons");
+            fLog("Draw form buttons");
 
             // If at least DUT, show Start button
             if (this.dutCollection.length > 0) {
@@ -84,7 +96,7 @@ define([
 
         },
         show_config_choices: function () {
-            console.log("Draw drop-down dialog of test options");
+            fLog("Draw drop-down dialog of test options");
             template = _.template(this.$el.find("#config_select_template").html());
             var compiledTemplate = template(config_types = this.config_types);
             this.$el.find("#config-type-selector-area").html(compiledTemplate);
@@ -99,11 +111,11 @@ define([
             } else if (this.config_choice == 'upload_config') {
                 this.show_file_upload_form();
             } else {
-                console.log("Not found:" + this.config_choice);
+                fLog("Not found:" + this.config_choice);
             }
         },
         show_add_dut_form: function () {
-            console.log("Show Add Form");
+            fLog("Show Add Form");
             // Show input fields for Serial Number and Station
             template = _.template(this.$el.find("#add-form-template").html());
             var compiledTemplate = template(duts = this.dutCollection);
@@ -119,9 +131,9 @@ define([
         },
         form_submitted: function (e) {
             e.preventDefault();
-            console.log("Determine action based on which submit button was clicked");
+            fLog("Determine action based on which submit button was clicked");
 
-            console.log("Find id of submit button clicked:");
+            fLog("Find id of submit button clicked:");
             // REF: http://stackoverflow.com/questions/2066162/how-can-i-get-the-button-that-caused-the-submit-from-the-form-submit-event
             // The clicked button will be the activeElement.
             var $btn = $(document.activeElement);
@@ -136,10 +148,10 @@ define([
             //    /* it has a "name" attribute */
             //    $btn.is('[name]')
             //) {
-            //    console.log("Seems, that this element was clicked:", $btn);
+            //    fLog("Seems, that this element was clicked:", $btn);
             //    /* access $btn.attr("name") and $btn.val() for data */
-            //    console.log($btn.attr("value"));
-            //    console.log($btn.attr("id"));
+            //    fLog($btn.attr("value"));
+            //    fLog($btn.attr("id"));
             //}
 
             // Course of action
@@ -153,7 +165,7 @@ define([
         },
         add_dut: function (e) {
             e.preventDefault();
-            console.log("Add clicked");
+            fLog("Add clicked");
 
             // Get form data
             form_data = $(e.currentTarget).serializeObject();
@@ -191,9 +203,9 @@ define([
 
             //// HAD TO DEBUG THE DATA TYPE
             //if (this.dutCollection instanceof Backbone.Collection) {
-            //    console.log("yay");
+            //    fLog("yay");
             //} else if (this.dutCollection instanceof Backbone.Model) {
-            //    console.log("boo");
+            //    fLog("boo");
             //}
 
             this.show_add_dut_form();
@@ -201,39 +213,57 @@ define([
         },
         delete_dut: function (e) {
             e.preventDefault();
-            console.log("Delete clicked");
+            fLog("Delete clicked");
             sn = e.currentTarget['id'];
-            console.log(sn);
+            fLog(sn);
             dut = this.dutCollection.where({'sn': sn});
-            console.log(dut);
+            fLog(dut);
             this.dutCollection.remove(dut);
-            console.log(this.dutCollection);
+            fLog(this.dutCollection);
             this.show_add_dut_form();
             return false;
         },
         start_test: function (e) {
             e.preventDefault();
-            console.log("Start Test Clicked");            // Get form data
-            //console.log(this.dutCollection);
-            //console.log(this.config_choice);
-            //console.log("New Model");
+            fLog("Start Test Clicked");            // Get form data
+            that = this;
+            //fLog(this.dutCollection);
+            //fLog(this.config_choice);
+            //fLog("New Model");
             var new_job = new JobModel({duts: this.dutCollection, conf: this.config_choice});
-            //console.log("Post to server");
-            $.jobsCollection.create(new_job, {
-                error : function(model, response){
-                    //console.log(response);
-                    alert(response.status);
-                },
-                success: function(model, response){
-                    //console.log(response);
-                    alert(response.status);
-                }
+            //fLog("Post to server");
+            jobsCollection = new JobsCollection();
+            jobsCollection.fetch().done(function () {
+                jobsCollection.create(new_job, {
+                    error: function (model, response) {
+                        //fLog(response);
+                        alert(response.status);
+                    },
+                    success: function (model, response) {
+                        //fLog(response);
+                        alert(response.status);
+                        that.render();
+                    }
+                });
             });
-            this.render()
+            //
+            // jobsCollection = new JobsCollection();
+            // jobsCollection.fetch();
+            // jobsCollection.create(new_job, {
+            //     error: function (model, response) {
+            //         //fLog(response);
+            //         alert(response.status);
+            //     },
+            //     success: function (model, response) {
+            //         //fLog(response);
+            //         alert(response.status);
+            //     }
+            // });
+            // this.render();
 
         },
         show_file_upload_form: function () {
-            console.log("show upload form");
+            fLog("show upload form");
             template = _.template(this.$el.find("#upload-form-template").html());
             var compiledTemplate = template(duts = this.dutCollection);
             this.$el.find("#config-options-area").html(compiledTemplate);
@@ -241,14 +271,14 @@ define([
         },
         upload_config: function () {
             var upload_config_file = $('input[name="fileInput"]')[0].files[0];
-            console.log(upload_config_file);
+            fLog(upload_config_file);
 
             f_name = upload_config_file.name;
             f_size = upload_config_file.size;
             f_type = upload_config_file.type;
-            console.log("name:" + f_name);
-            console.log("size:" + f_size);
-            console.log("type:" + f_type);
+            fLog("name:" + f_name);
+            fLog("size:" + f_size);
+            fLog("type:" + f_type);
 
             var fd = new FormData();
             fd.append('file', upload_config_file);

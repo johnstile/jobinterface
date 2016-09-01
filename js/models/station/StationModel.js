@@ -8,5 +8,4 @@ define([
     });
 
     return StationModel;
-
 });

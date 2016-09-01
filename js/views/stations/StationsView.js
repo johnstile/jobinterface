@@ -8,6 +8,15 @@ define([
     'jquery.tablesorter.combined'
 ], function ($, _, Backbone, StationsCollection, StationsModel, stationsTemplate) {
 
+    // Enable/disable logging
+    var gDebug = true;
+
+    function fLog(rMsg) {
+        // If the browser does not have a console, don't print to it
+        if (gDebug && window.console) {
+            console.log(rMsg);
+        }
+    }
     // Converts form submission to json object
     // REF: https://github.com/thomasdavis/backbonetutorials/tree/gh-pages/videos/beginner
     $.fn.serializeObject = function () {
@@ -36,65 +45,60 @@ define([
             "click .barcodes_btn": "show_hide_barcodes"
         },
         initialize: function () {
-            console.log("init StationsView");
+            fLog("init StationsView");
+            that = this;
+            fLog("instantiate stationsCollection");
             this.stationsCollection = new StationsCollection();
-            //this.stationsCollection.bind('reset', this.addAll );
-            this.stationsCollection.on("change", this.render, this);
+            fLog("listenTo stationsCollection");
+            this.listenTo(this.stationsCollection, "reset change add remove", that.render);
+            fLog("fetch stationsCollection");
+            this.stationsCollection.fetch();
         },
         render: function () {
             var that = this;
-
+            fLog("StationsView render()");
             $('.menu li').removeClass('active');
             $('.menu li a[href="' + window.location.hash + '"]').parent().addClass('active');
 
-
-            this.stationsCollection.fetch({
-                success: function (existing_stations) {
-                    that.show_stations(existing_stations);
-                },
-                error: function () {
-                    console.log('error');
-                    that.$el.find('#error').html("Error: Can't read list of Stations");
-                }
-            });
             this.$el.html(stationsTemplate);
             this.show_main();
+            this.show_stations();
             return this;
         },
         show_main: function () {
-            console.log("Show main layout");
+            fLog("Show main layout");
             template = _.template(this.$el.find("#main_layout_template").html());
             var compiledTemplate = template();
             this.$el.find("#page").html(template);
         },
-        show_stations: function (s) {
-            console.log("Show stations");
-            console.log(s);
+        show_stations: function () {
+            fLog("Show stations");
+            fLog(this.stationsCollection);
             template = _.template(this.$el.find("#list-station-form-template").html());
-            var compiledTemplate = template(stations = s);
+            var compiledTemplate = template(stations = this.stationsCollection);
             this.$el.find("#show-stations-area").html(compiledTemplate);
 
         },
         form_submitted: function (e) {
             //e.preventDefault();
-            console.log("Determine action based on which submit button was clicked");
+            fLog("Determine action based on which submit button was clicked");
 
             // REF: http://stackoverflow.com/questions/2066162/how-can-i-get-the-button-that-caused-the-submit-from-the-form-submit-event
             // The clicked button will be the activeElement.
             var $btn = $(document.activeElement);
-            console.log("btn id:", $btn.attr("id"));
+            fLog("btn id:", $btn.attr("id"));
 
             // Harvest cid from button name
             var $cid = $btn.attr("id").split(/^.*-/)[1];
-            console.log("cid:", $cid);
+            fLog("cid:", $cid);
 
             // Will be edit/delete/confirm/cancel
             var $choice = $btn.attr("id").split(/-.*/)[0];
-            console.log("choice:", $choice);
+            fLog("choice:", $choice);
 
             // Will be edit or delete
             var $action = $btn.attr("value");
-            console.log("action:", $action);
+            fLog("action:", $action);
 
             // Course of action
             if ($btn.attr("id").match(/del-/g)) {
@@ -114,14 +118,14 @@ define([
         },
         delete_station: function (e) {
             e.preventDefault();
-            console.log("Delete Station");
+            fLog("Delete Station");
 
             var $btn = $(document.activeElement);
-            console.log($btn.attr("id"));
+            fLog($btn.attr("id"));
 
             // Harvest cid from button name
             var $cid = $btn.attr("id").split(/del-/)[1];
-            console.log($cid);
+            fLog($cid);
 
             var $action = $btn.attr("value");
 
@@ -131,13 +135,13 @@ define([
         },
         edit_station: function (e) {
             e.preventDefault();
-            console.log("Edit Station");
+            fLog("Edit Station");
 
             var $btn = $(document.activeElement);
-            console.log($btn.attr("id"));
+            fLog($btn.attr("id"));
 
             var $cid = $btn.attr("id").split(/edit-/)[1];
-            console.log($cid);
+            fLog($cid);
 
             this.$el.find("#alias-" + $cid).attr('readonly', false);
             this.$el.find("#ip-" + $cid).attr('readonly', false);
@@ -149,17 +153,17 @@ define([
         },
         cancel_station: function (e) {
             e.preventDefault();
-            console.log("Cancel Station");
+            fLog("Cancel Station");
 
             var $btn = $(document.activeElement);
-            console.log($btn.attr("id"));
+            fLog($btn.attr("id"));
 
             var $cid = $btn.attr("id").split(/cancel-/)[1];
-            console.log($cid);
+            fLog($cid);
 
             // At this point they have confirmed an action
             var $action = $btn.attr("value");
-            console.log("Action:", $action)
+            fLog("Action:", $action)
 
             // Reset the buttons
             this.change_buttons_to_delete_edit($cid);
@@ -170,18 +174,18 @@ define([
         },
         confirm_station: function (e) {
             e.preventDefault();
-            console.log("Confirm Station");
+            fLog("Confirm Station");
 
             var $btn = $(document.activeElement);
-            console.log($btn.attr("id"));
+            fLog($btn.attr("id"));
 
             // Harvest cid from button name
             var $cid = $btn.attr("id").split(/confirm-/)[1];
-            console.log($cid);
+            fLog($cid);
 
             // At this point they have confirmed an action
             var $action = $btn.attr("value");
-            console.log("Action:", $action)
+            fLog("Action:", $action)
 
             if ($action == 'edit') {
                 this.edit_station_for_real(e);
@@ -194,14 +198,14 @@ define([
         },
         edit_station_for_real: function (e) {
             e.preventDefault();
-            console.log("Edit Station For Real:");
+            fLog("Edit Station For Real:");
 
             // To hold list of modified models
             var mod_list = [];
 
             // Get form data
             form_data = $(e.currentTarget).serializeObject();
-            //console.log(form_data);
+            //fLog(form_data);
 
             // Look for changed data
             for (var i = 0; i < form_data['alias'].length; i++) {
@@ -209,15 +213,15 @@ define([
 
                 // Get model from collection (id is the only element they cant change)
                 mod = this.stationsCollection.findWhere({id: form_data['id'][i]});
-                //console.log(mod);
+                //fLog(mod);
                 if (mod != null) {
                     // Look for a changes
                     if (mod.get('ip') !== form_data['ip'][i]) {
-                        console.log("ip change: ", mod.get('ip'), " !== ", form_data['ip'][i]);
+                        fLog("ip change: ", mod.get('ip'), " !== ", form_data['ip'][i]);
                         changed = true;
                     }
                     if (mod.get('alias') !== form_data['alias'][i]) {
-                        console.log("alias change: ", mod.get('alias'), " !== ", form_data['alias'][i]);
+                        fLog("alias change: ", mod.get('alias'), " !== ", form_data['alias'][i]);
                         changed = true;
                     }
                     if (changed == true) {
@@ -231,31 +235,19 @@ define([
             }
             // Switch the button back to normal
             var $btn = $(document.activeElement);
-            console.log($btn.attr("id"));
+            fLog($btn.attr("id"));
 
             // Harvest cid from button name
             var $cid = $btn.attr("id").split(/confirm-/)[1];
-            console.log($cid);
+            fLog($cid);
             this.change_buttons_to_delete_edit($cid);
 
         },
         delete_station_for_real: function (cid) {
-            console.log("Delete Station For Real");
+            fLog("Delete Station For Real");
             that = this;
             var model = this.stationsCollection.get(cid);
-            model.destroy(
-                {
-                    success: function (model, response) {
-                        console.log("Success");
-                        //that.stationsCollection.remove(model);
-                        //that.show_stations();
-                        that.render()
-                    },
-                    error: function (model, response) {
-                        console.log("Error");
-                    }
-                }
-            );
+            model.destroy();
         },
         change_buttons_to_confirm_cancel: function (cid, action) {
 
@@ -290,7 +282,8 @@ define([
         },
         add_station: function (e) {
             e.preventDefault();
-            console.log("Add Station");
+            fLog("Add Station");
+            that = this;
             // Get form data
             form_data = $(e.currentTarget).serializeObject();
             // Do not allow empty fields
@@ -312,14 +305,15 @@ define([
                 alert("No duplicate station IDs");
                 return;
             }
+            fLog("Got here");
             // Crate a new model from form data
             var new_station = new StationsModel({'alias': form_data['alias'], 'ip': form_data['ip']});
             // POST to server
-            this.stationsCollection.create(new_station);
+            var postCreationStatus = this.stationsCollection.create(new_station);
         },
         show_hide_barcodes: function (e) {
             e.preventDefault();
-            console.log("Show Barcodes");
+            fLog("Show Barcodes");
             that = this;
 
             var btn = $(e.currentTarget);
@@ -339,7 +333,7 @@ define([
                 btn.text("Hide Barcodes").attr('data-function', 'hide_barcodes');
             } else if (btn.attr("data-function") === 'hide_barcodes') {
                 btn.attr("data-function", "Show_barcodes").text('Show Barcodes');
-                that.show_stations(this.stationsCollection);
+                //that.show_stations();
                 this.render();
             }
         }
