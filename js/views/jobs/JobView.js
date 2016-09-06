@@ -98,6 +98,12 @@ define([
             // sidebarView.render();
 
             return this;
+        },
+        close: function () {
+            fLog("calling JobView close()");
+            //this.remove();
+            this.unbind();
+            this.poller.destroy();
         }
     });
 

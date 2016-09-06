@@ -303,7 +303,11 @@ define([
             });
 
         },
-
+        close: function () {
+            fLog("calling ScheduleView close()");
+            //this.remove();
+            this.unbind();
+        }
     });
     return ScheduleView;
 });

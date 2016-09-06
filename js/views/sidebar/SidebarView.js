@@ -60,6 +60,11 @@ define([
             //this.$el.html(compiledTemplate); // No error. doesn't work.
 
             return this;
+        },
+        close: function () {
+            fLog("calling SidebarView close()");
+            //this.remove();
+            this.unbind();
         }
 
     });

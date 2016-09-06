@@ -2,12 +2,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'poller',
     'views/sidebar/SidebarView',
     'models/job/JobModel',
     'collections/jobs/JobsCollection',
     'text!templates/jobs/jobsTemplate.html',
     'jquery.tablesorter.combined'
-], function ($, _, Backbone, SidebarView, JobModel, JobsCollection, jobsTemplate) {
+], function ($, _, Backbone, Poller, SidebarView, JobModel, JobsCollection, jobsTemplate) {
 
     // Enable/disable logging
     var gDebug = true;
@@ -32,8 +33,29 @@ define([
             this.jobsCollection = new JobsCollection();
             fLog("listenTo jobsCollection");
             this.listenTo(this.jobsCollection, "reset change add remove", this.render);
-            fLog("fetch jobsCollection");
-            this.jobsCollection.fetch();
+            //fLog("fetch jobsCollection");
+            //this.jobsCollection.fetch();
+            fLog("listenTo dutCollection");
+            this.listenTo(this.jobsCollection, "reset change add remove", this.render);
+            // Poller handles fetch only, this.listenTo above handles render
+            var options = {
+                delay: 3000, // default 1000ms
+                delayed: 3000, // run after a delayed (can be true)
+                continueOnError: true // do not stop on error event
+            };
+            this.poller = Poller.get(this.jobsCollection, options);
+            this.listenTo(this.poller, 'success', function (model) {
+                fLog('another successful fetch!');
+                // Check if complete
+                //that.is_job_running();
+            });
+            this.listenTo(this.poller, 'complete', function (model) {
+                fLog('hurray! we are done!');
+            });
+            this.listenTo(this.poller, 'error', function (model) {
+                fLog('oops! something went wrong');
+            });
+            this.poller.start();
         },
 
         render: function () {
@@ -102,6 +124,13 @@ define([
             model.set({"action": 'stop'});
             // Send PUT
             model.save();
+        },
+        close: function () {
+            fLog("calling JobsView close()");
+            //this.remove();
+            this.unbind();
+            this.poller.destroy();
+            this.jobsCollection.unbind();
         }
     });
     return JobsView;

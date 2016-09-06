@@ -336,6 +336,10 @@ define([
                 //that.show_stations();
                 this.render();
             }
+        },
+        close: function () {
+            //this.remove();
+            this.unbind();
         }
     });
     return StationsView;
