@@ -25,23 +25,42 @@ define([
         el: $("#page"),
         events: {
             "click .btn-delete-build": "delete_job", // Remove job
-            "click .btn-stop-build": "stop_job" // Stop job
+            "click .btn-stop-build": "stop_job", // Stop job
+            "click .btn-toggle-jobs": "toggle_jobs" // Show full or reduced job list
         },
         initialize: function () {
             fLog("init JobsView");
+            // When false, only show 10 jobs
+            this.show_all_jobs = false;
+            // make this a function so I can easily re-call if show_n_jobs changes
+            this.instantiate_poller();
+        },
+        instantiate_poller: function () {
             fLog("instantiate jobsCollection");
             this.jobsCollection = new JobsCollection();
             fLog("listenTo jobsCollection");
             this.listenTo(this.jobsCollection, "reset change add remove", this.render);
-            //fLog("fetch jobsCollection");
-            //this.jobsCollection.fetch();
-            fLog("listenTo dutCollection");
-            this.listenTo(this.jobsCollection, "reset change add remove", this.render);
+            // Custom signal after patching fetch prototype, to show loading
+            this.listenTo(this.jobsCollection, "fetch", function () {
+                var template = _.template( $('#loading').html() );
+                var compiledTemplate = template();
+                this.$el.html(compiledTemplate);
+                // icon http://ajaxload.info type:Squares Circle, Background:#A3D1FA, Transparent
+            });
+            // Set data argument to fetch.  e.g. ?show_n_jobs=n
+            if (this.show_all_jobs) {
+                show_n_jobs = {};  // ?show_n_jobs=null
+                this.btn_toggle_jobs_label = "Show 5";
+            } else {
+                show_n_jobs = {show_n_jobs: 5}; // ?show_n_jobs=n
+                this.btn_toggle_jobs_label ="Show All";
+            }
             // Poller handles fetch only, this.listenTo above handles render
             var options = {
                 delay: 3000, // default 1000ms
-                delayed: 3000, // run after a delayed (can be true)
-                continueOnError: true // do not stop on error event
+                delayed: 0, // run after a delayed (can be true)
+                continueOnError: true, // do not stop on error event
+                data: show_n_jobs // Fetch option ?show_n_jobs=n
             };
             this.poller = Poller.get(this.jobsCollection, options);
             this.listenTo(this.poller, 'success', function (model) {
@@ -70,8 +89,8 @@ define([
             };
             var template = _.template(jobsTemplate);
             var compiledTemplate = template(data);
-            this.$el.html(compiledTemplate);
-            //$("#page").append(compiledTemplate);  // Creates an empty list and full list.
+            this.$el.html(compiledTemplate);           
+            $('.btn-toggle-jobs').text(this.btn_toggle_jobs_label);
 
             // Must add  tablesorter after collection is populated, or else we loose sort.
             $(document).ready(function () {
@@ -116,14 +135,29 @@ define([
 
             // Must get
             fLog(this.jobsCollection);
-            fLog("id:", id);
+            fLog("id:" + id);
 
             // Find model in collection with these attributes
             var model = this.jobsCollection.findWhere({id: id});
+
             fLog(model);
             model.set({"action": 'stop'});
             // Send PUT
             model.save();
+        },
+        toggle_jobs: function () {
+            fLog("Toggle show all jobs");
+            // Toggle the flag
+            this.show_all_jobs = !this.show_all_jobs;
+
+            // Must call this or else the old jobs remain
+            this.jobsCollection.remove();
+
+            // Recreate poller
+            this.poller.destroy();
+
+            // Start new poller, uses this.show_all_jobs
+            this.instantiate_poller();
         },
         close: function () {
             fLog("calling JobsView close()");

@@ -35,17 +35,24 @@ define([
             this.job_dir = this.options['job_dir'];
             this.build = this.options['build'];
 
-            fLog("init JobView with: ", this.job_dir);
+            fLog("init with JobView:" + this.job_dir + ", Build:" + this.build);
             fLog("instantiate dutCollection");
             this.dutCollection = new DutCollection({job_dir: this.job_dir});
             fLog("listenTo dutCollection");
             this.listenTo(this.dutCollection, "reset change add remove", this.render);
+            // Custom signal after patching fetch prototype, to show loading
+            this.listenTo(this.jobsCollection, "fetch", function () {
+                var template = _.template($('#loading').html());
+                var compiledTemplate = template();
+                this.$el.html(compiledTemplate);
+                // icon http://ajaxload.info type:Squares Circle, Background:#A3D1FA, Transparent
+            });
 
             // Poller handles fetch only, this.listenTo above handles render
             var options = {
                 delay: 3000, // default 1000ms
-                delayed: 3000, // run after a delayed (can be true)
-                continueOnError: true // do not stop on error event
+                delayed: 0, // run after a delayed (can be true)
+                continueOnError: false // do not stop on error event
             };
             this.poller = Poller.get(this.dutCollection, options);
             this.listenTo(this.poller, 'success', function (model) {
@@ -56,8 +63,10 @@ define([
             this.listenTo(this.poller, 'complete', function (model) {
                 console.info('hurray! we are done!');
             });
-            this.listenTo(this.poller, 'error', function (model) {
-                console.error('oops! something went wrong');
+            this.listenTo(this.poller, 'error', function (model, response) {
+                fLog('oops! something went wrong');
+                fLog(response.responseJSON.error);
+                alert(response.responseJSON.error);
             });
             this.poller.start();
         },
@@ -78,10 +87,15 @@ define([
             fLog(JSON.stringify(this.dutCollection));
 
             var template = _.template(jobTemplate);
-            var compiledTemplate = template({dutCollection: this.dutCollection.models});
+            var compiledTemplate = template({
+                dutCollection: this.dutCollection.models,
+                job_dir: this.job_dir,
+                build_number: this.build
+            });
+
             this.$el.html(compiledTemplate);
 
-            // Must add  tablesorter after collection is populated, or else we loose sort.
+            // Must add  table sorter after collection is populated, or else we loose sort.
             $(document).ready(function () {
                 $("#jobTable").tablesorter({
                     headers: {
@@ -93,6 +107,8 @@ define([
                 });
             });
 
+            //this.$el.find('#build_dir').text(this.job_dir);
+            this.$el.find('#build_number').text(this.build);
             // // add the sidebar
             // var sidebarView = new SidebarView();
             // sidebarView.render();

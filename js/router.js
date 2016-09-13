@@ -3,14 +3,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'poller',
-    'collections/jobs/JobsCollection',
     'views/dashboard/DashBoardView',
     'views/jobs/JobsView',
     'views/jobs/JobView',
+    'views/log/LogView',
     'views/schedule/ScheduleView',
     'views/stations/StationsView'
-], function ($, _, Backbone, Poller, JobsCollection, DashBoardView, JobsView, JobView, ScheduleView, StationsView) {
+], function ($, _, Backbone, DashBoardView, JobsView, JobView, LogView, ScheduleView, StationsView) {
 
     // Enable/disable logging
     var gDebug = true;
@@ -26,7 +25,8 @@ define([
         routes: {
             // Define some URL routes
             'jobs': 'showJobs',              // All jobs page
-            'jobs/:job_dir/:build': 'showJob',           // One job queried by id
+            'jobs/:job_dir/:build': 'showJob', // One job queried by id
+            'log/:job_dir/:serial_number/:file': 'showLog',
             'schedule': 'showSchedule',
             'stations': 'showStations',
             // Default
@@ -35,9 +35,6 @@ define([
     });
 
     var initialize = function () {
-
-        // Collections to share across views
-        //$.jobsCollection = new JobsCollection([]);
 
         var app_router = new AppRouter;
         var currentView = null;
@@ -56,7 +53,19 @@ define([
             if (currentView) {
                 currentView.close();
             }
-            currentView = new JobView({job_dir: job_dir});
+            currentView = new JobView({job_dir: job_dir, build: build});
+        });
+
+        app_router.on('route:showLog', function (job_dir, serial_number, file) {
+
+            // e.g. http://localhost/g2glitch/#/log/20160907_122250/16230931/hardware_monitor
+            fLog("Show a job_dir:" + job_dir);
+            fLog("Show a serial_number:" + serial_number);
+            fLog("Show a file:" + file);
+            if (currentView) {
+                currentView.close();
+            }
+            currentView = new LogView({job_dir: job_dir, serial_number:serial_number, file: file});
         });
 
         app_router.on('route:showSchedule', function () {

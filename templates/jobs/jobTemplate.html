@@ -1,27 +1,47 @@
 <div class="main">
     <h2>Duts</h2>
+    <div id="build_dir"><%= job_dir %></div>
+    <div id="build_number"><%= build_number %></div>
     <table border=1 id="jobTable" class="tablesorter">
         <thead>
         <tr>
-            <th>SN</th>
-            <th>Iterations</th>
-            <th>Pass/Fail</th>
-            <th>Complete</th>
-            <th>Power</th>
-            <th>Glitch</th>
-            <th>Audio</th>
-            <th>X Input</th>
-            <th>x Output</th>
-            <th>Phase Pair</th>
-            <th>Phase All Pair</th>
+            <th title="id">SN</th>
+            <th title="iteration">Iterations</th>
+            <th title="all_iterations_complete">Complete</th>
+            <th title="dut_failed">Pass/Fail</th>
+            <th title="power_cycle_fail">Power</th>
+            <th title="glitch_test_fail">Glitch</th>
+            <th title="pass_audio_fail">Audio</th>
+            <th title="crosstalk_input_test_fail">X Input</th>
+            <th title="crosstalk_output_test_fail">x Output</th>
+            <th title="phase_test_between_pairs_fail">Phase Pair</th>
+            <th title="phase_test_between_pairs_fail">Phase All Pair</th>
+            <th title="hardware_monitor">HM Log</th>
+            <th title="test_results">TR Log</th>
         </tr>
         </thead>
         <tfoot>
         <tbody>
         <% _.each(dutCollection, function(dut) {
+        // This isn't streaming
+        var log_hm_url = "./#log/" + job_dir + "/" + dut.get('id') + "/test_results"
+        var log_tr_url = "./#log/" + job_dir + "/" + dut.get('id') + "/hardware_monitor"
+        // This is temporary
+        var log_hm_url = "./glitchlogs/" + job_dir + "/hardware_monitor_" +  dut.get('id') + ".txt"
+        var log_tr_url = "./glitchlogs/" + job_dir + "/test_results_" +  dut.get('id') + ".txt"
         %>
         <tr>
-            <td><%= dut.get('id') %></td>
+            <td>
+                <% if( dut.get('dut_failed') == 0 && dut.get('all_iterations_complete') == 1 ){ %>
+                <div style="color:red">
+                    <% } else if (dut.get('dut_failed') == 1 && dut.get('all_iterations_complete') == 1 ) { %>
+                    <div style="color:green">
+                        <% } else { %>
+                        <div>
+                            <% } %>
+                            <%= dut.get('id') %>
+                        </div>
+            </td>
             <td><%= dut.get('iteration') %></td>
             <td><%= dut.get('dut_failed') %></td>
             <td><%= dut.get('all_iterations_complete') %></td>
@@ -32,6 +52,20 @@
             <td><%= dut.get('crosstalk_output_test_fail') %></td>
             <td><%= dut.get('phase_test_between_pairs_fail') %></td>
             <td><%= dut.get('phase_test_between_all_pairs_fail') %></td>
+            <td>
+                <button type="button"
+                        class="btn btn-primary btn-hm-log"
+                        data-id="<%= dut.get('id') %>"
+                        onclick="window.location.href='<%= log_hm_url %>'">View
+                </button>
+            </td>
+            <td>
+                <button type="button"
+                        class="btn btn-primary btn-tr-log"
+                        data-id="<%= dut.get('id') %>"
+                        onclick="window.location.href='<%= log_tr_url %>'">View
+                </button>
+            </td>
         </tr>
         <% }); %>
         </tbody>

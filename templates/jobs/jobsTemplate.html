@@ -1,18 +1,20 @@
 <div class="main">
     <h2>Jobs</h2>
+    <div id="but-all">
+        <button type="button" class="btn btn-primary btn-toggle-jobs">Show All</button>
+    </div>
     <div id="jobs-list">
         <table border=1 id="jobsTable" class="tablesorter">
             <thead>
             <tr>
                 <th>Action</th>
-                <th>Id</th>
-                <th>Job Status</th>
-                <th>Conf</th>
-                <th>Elapsed</th>
-                <th>DUT Status</th>
                 <th>Start Date</th>
-                <th>Logs</th>
-                <th>URL</th>
+                <th>Elapsed</th>
+                <th>Job Status</th>
+                <th>DUT Status</th>
+                <th>Console</th>
+                <th>Conf</th>
+                <th>Jenkins</th>
             </tr>
             </thead>
             <tfoot>
@@ -39,32 +41,35 @@
                     </span>
                 </td>
                 <td>
-                    <a href="jobconsole/<%= id %>"><%= id %></a>
-                </td>
-                <td>
-                    <% if (build_status == 'FAILURE' ) { %>
-                        <span style="color: red;"><%= build_status %></span>
-                    <% } else if (build_is_running) { %>
-                        Running
-                    <% } %>
-                </td>
-                <td>
-                    <a href="glitchlogs/<%= start_date %>/<%= conf_file %>"><%= conf_file %></a>
+                    <%= start_date %>
                 </td>
                 <td>
                     <%= duration %>
                 </td>
                 <td>
-                    <a href="#/jobs/<%= start_date %>/<%= id %>">Status</a>
+                    <% if (build_status == 'FAILURE' ) { %>
+                        <span style="color: red;"><%= build_status %></span>
+                    <% } else if (build_status == 'ABORTED') { %>
+                        <span style="color: orange;"><%= build_status %></span>
+                    <% } else if (build_status == 'SUCCESS') { %>
+                        <span>COMPLETE</span>
+                    <% } else if (build_status != '') { %>
+                        <span><%= build_status %></span>
+                    <% } else if (build_is_running) { %>
+                        Running
+                    <% } %>
                 </td>
                 <td>
-                    <%= start_date %>
+                    <button type="button" class="btn btn-primary btn-status" onclick="window.location.href='#/jobs/<%= start_date %>/<%= id %>'">Status</button>
                 </td>
                 <td>
-                    <a href="glitchlogs/<%= start_date %>/logs/">Script Logs</a>
+                    <button type="button" class="btn btn-primary btn-console" onclick="window.location.href='jobconsole/<%= id %>'">Console</button>
                 </td>
                 <td>
-                    <a href="<%= url %>">url</a>
+                    <button type="button" class="btn btn-primary btn-config-file" onclick="window.location.href='glitchlogs/<%= start_date %>/<%= conf_file %>'">Config</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-config-file" onclick="window.location.href='<%= url %>'">Build</button>
                 </td>
             </tr>
             <% }); %>

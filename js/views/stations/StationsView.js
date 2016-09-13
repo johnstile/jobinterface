@@ -50,7 +50,7 @@ define([
             fLog("instantiate stationsCollection");
             this.stationsCollection = new StationsCollection();
             fLog("listenTo stationsCollection");
-            this.listenTo(this.stationsCollection, "reset change add remove", that.render);
+            this.listenTo(this.stationsCollection, "reset change add remove save", that.render);
             fLog("fetch stationsCollection");
             this.stationsCollection.fetch();
         },
@@ -77,7 +77,6 @@ define([
             template = _.template(this.$el.find("#list-station-form-template").html());
             var compiledTemplate = template(stations = this.stationsCollection);
             this.$el.find("#show-stations-area").html(compiledTemplate);
-
         },
         form_submitted: function (e) {
             //e.preventDefault();
@@ -152,24 +151,25 @@ define([
             this.change_buttons_to_confirm_cancel($cid, $action);
         },
         cancel_station: function (e) {
-            e.preventDefault();
+            //e.preventDefault();
             fLog("Cancel Station");
 
-            var $btn = $(document.activeElement);
-            fLog($btn.attr("id"));
-
-            var $cid = $btn.attr("id").split(/cancel-/)[1];
-            fLog($cid);
-
-            // At this point they have confirmed an action
-            var $action = $btn.attr("value");
-            fLog("Action:", $action)
+            // var $btn = $(document.activeElement);
+            // fLog($btn.attr("id"));
+            //
+            // var $cid = $btn.attr("id").split(/cancel-/)[1];
+            // fLog($cid);
+            //
+            // // At this point they have confirmed an action
+            // var $action = $btn.attr("value");
+            // fLog("Action:", $action)
 
             // Reset the buttons
-            this.change_buttons_to_delete_edit($cid);
+            //this.change_buttons_to_delete_edit($cid);
 
             // Reset the collection
-            this.stationsCollection.reset();
+            //this.stationsCollection.reset();
+            this.render();
 
         },
         confirm_station: function (e) {
@@ -234,14 +234,16 @@ define([
                 }
             }
             // Switch the button back to normal
-            var $btn = $(document.activeElement);
-            fLog($btn.attr("id"));
+            //var $btn = $(document.activeElement);
+            //fLog($btn.attr("id"));
 
             // Harvest cid from button name
-            var $cid = $btn.attr("id").split(/confirm-/)[1];
-            fLog($cid);
-            this.change_buttons_to_delete_edit($cid);
+            //var $cid = $btn.attr("id").split(/confirm-/)[1];
+            //fLog($cid);
+            //this.change_buttons_to_delete_edit($cid);
 
+            // Reset the collection
+            //this.stationsCollection.reset();
         },
         delete_station_for_real: function (cid) {
             fLog("Delete Station For Real");
@@ -251,9 +253,12 @@ define([
         },
         change_buttons_to_confirm_cancel: function (cid, action) {
 
+            fLog("Called change_buttons_to_confirm_cancel() with cid "+ cid);
             // Change button to confirm and cancel
             this.$el.find("#del-" + cid).attr('id', 'confirm-' + cid).attr('value', action).removeClass('delete_station_btn').addClass('confirm_station_btn').html("Confirm");
             this.$el.find("#edit-" + cid).attr('id', 'cancel-' + cid).attr('value', action).removeClass('edit_station_btn').addClass('cancel_station_btn').html("Cancel");
+            // Show barcode button
+            this.$el.find("#barcode-" + cid).hide();
             // Set background
             this.$el.find("#" + cid).css('background-color', 'gray');
             // Disable Add
@@ -265,9 +270,12 @@ define([
 
         },
         change_buttons_to_delete_edit: function (cid) {
+            fLog("Called change_buttons_to_delete_edit() with cid "+ cid);
             // Change buttons to delete and edit
             this.$el.find("#confirm-" + cid).attr('id', 'del-' + cid).attr('value', 'del').removeClass('confirm_station_btn').addClass('delete_station_btn').html("Del");
             this.$el.find("#cancel-" + cid).attr('id', 'edit-' + cid).attr('value', 'edit').removeClass('cancel_station_btn').addClass('edit_station_btn').html("Edit");
+            // Show barcode button
+            this.$el.find("#barcode-" + cid).show();
             // Set background color
             this.$el.find("#" + cid).css('background-color', 'white');
             // Disable field edit for existing
@@ -315,24 +323,29 @@ define([
             e.preventDefault();
             fLog("Show Barcodes");
             that = this;
-
             var btn = $(e.currentTarget);
+            var main_btn = $("#show_hide_barcode_btn");
 
             if (btn.attr("data-function") === 'show_barcodes') {
                 // Get list station ports, and populate the drop down option
                 this.station_ports = [];
-                $.get(
+
+                var station_name = btn.attr("data-id");
+                fLog("station_name:" + station_name);
+
+                $.post(
                     'stationsports',
-                    {},
+                    {station_name:station_name},
                     function (station_ports) {
                         template = _.template(that.$el.find("#port_barcode_template").html());
                         var compiledTemplate = template(ports = station_ports);
                         that.$el.find("#page").html(compiledTemplate);
-                    }
+                        main_btn.text("Hide Barcodes").attr('data-function', 'hide_barcodes');
+                    },
+                    'json'
                 );
-                btn.text("Hide Barcodes").attr('data-function', 'hide_barcodes');
             } else if (btn.attr("data-function") === 'hide_barcodes') {
-                btn.attr("data-function", "Show_barcodes").text('Show Barcodes');
+                btn.attr("data-function", "Show_barcodes").text('Show All Barcodes');
                 //that.show_stations();
                 this.render();
             }

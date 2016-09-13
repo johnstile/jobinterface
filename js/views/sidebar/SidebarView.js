@@ -48,8 +48,15 @@ define([
                 description: "Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions."
             };
 
+            var jenkins_ad = {
+                site_url: "https://jenkins.io/",
+                image_url: "./imgs/jenkins.png",
+                title: "Jenkins",
+                description: "The leading open source automation server, for deploying and automating any project."
+            };
+
             var data = {
-                ads: [require_ad, backbone_ad, underscore_ad, jquery_ad, flask_ad]
+                ads: [require_ad, backbone_ad, underscore_ad, jquery_ad, flask_ad, jenkins_ad]
             };
 
             var template = _.template(sidebarTemplate);

@@ -286,3 +286,41 @@ h1{
     padding:0px;
  }
 
+#page button#start_test_btn,
+button.btn.btn-primary.add_station_btn
+{
+    background-color: #3fcc3b;
+    background-image: linear-gradient(to bottom, #57cc05, #07cc5c);
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+#page button.btn.btn-primary.btn-delete-dut,
+button.btn.btn-primary.btn-delete-build,
+button.btn.btn-primary.delete_station_btn
+{
+    background-color: #cc0003;
+    background-image: linear-gradient(to bottom, #cc002d, #cc3000);
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+#page button.btn.btn-primary.btn-stop-build
+{
+    background-color: #cc6f00;
+    background-image: linear-gradient(to bottom, #cc5b01, #cc9102);
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+}
+#page button.btn.btn-primary.barcodes_btn
+{
+    background-color: #d9dcf0;
+    background-image: linear-gradient(to bottom, #c8c2e4, #cfd0e2);
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+}
+
+#page table.table.stripes4.barcode {
+    border: 1px solid black;
+    width: auto;
+    border-collapse: collapse;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}

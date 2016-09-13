@@ -1,6 +1,6 @@
 <div class="main">
     <h2>Edit Stations</h2>
-    <button type="button" data-function='show_barcodes' class="btn btn-primary barcodes_btn">Show Barcodes</button>
+    <button type="button" id="show_hide_barcode_btn" data-function='show_barcodes' class="btn btn-primary barcodes_btn">Show All Barcodes</button>
     <div id="page">
     </div>
 </div>
@@ -40,6 +40,10 @@
                                 name="submit_btn"
                                 value="edit">Edit
                         </button>
+                        <button id="barcode-<%= station['cid'] %>" type="button" data-function='show_barcodes' class="btn btn-primary barcodes_btn"
+                                data-id="<%= station['attributes']['alias'] %>"
+                                value="bar">Bar</button>
+
                     </span>
                 </td>
                 <td>

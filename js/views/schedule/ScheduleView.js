@@ -241,8 +241,9 @@ define([
                     },
                     success: function (model, response) {
                         //fLog(response);
-                        alert(response.status);
-                        that.render();
+                        alert(response.status + ", Switching to Jobs View");
+                        fLog("Navigate to jobs");
+                        Backbone.history.navigate('jobs', {trigger: true});
                     }
                 });
             });
@@ -295,6 +296,9 @@ define([
                 success: function (fd) {
                     //$('#loadingModal').modal('hide');
                     alert("Job Started");
+                    alert(fd.status + ", Switching to Jobs View");
+                    fLog("Navigate to jobs");
+                    Backbone.history.navigate('jobs', {trigger: true});
                 },
                 error: function (fd) {
                     alert('Failed');
