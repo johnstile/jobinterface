@@ -7,9 +7,11 @@ define([
     'views/jobs/JobsView',
     'views/jobs/JobView',
     'views/log/LogView',
+    'views/log/ConsoleLogView',
     'views/schedule/ScheduleView',
-    'views/stations/StationsView'
-], function ($, _, Backbone, DashBoardView, JobsView, JobView, LogView, ScheduleView, StationsView) {
+    'views/stations/StationsView',
+    'views/readme/ReadmeView'
+], function ($, _, Backbone, DashBoardView, JobsView, JobView, LogView, ConsoleLogView, ScheduleView, StationsView, ReadmeView) {
 
     // Enable/disable logging
     var gDebug = true;
@@ -26,9 +28,11 @@ define([
             // Define some URL routes
             'jobs': 'showJobs',              // All jobs page
             'jobs/:job_dir/:build': 'showJob', // One job queried by id
-            'log/:job_dir/:serial_number/:file': 'showLog',
             'schedule': 'showSchedule',
             'stations': 'showStations',
+            'log/:job_dir/:serial_number/:file': 'showLog',
+            'jobconsole/:build_id': 'showConsoleLog',
+            'README': 'showReadme',
             // Default
             '*actions': 'defaultAction'
         }
@@ -68,6 +72,16 @@ define([
             currentView = new LogView({job_dir: job_dir, serial_number:serial_number, file: file});
         });
 
+        app_router.on('route:showConsoleLog', function (build_id) {
+
+            // e.g. http://localhost/g2glitch/#/log/20160907_122250/16230931/hardware_monitor
+            fLog("Show a build_id:" + build_id);
+            if (currentView) {
+                currentView.close();
+            }
+            currentView = new ConsoleLogView({build_id: build_id});
+        });
+
         app_router.on('route:showSchedule', function () {
             if (currentView) {
                 currentView.close();
@@ -80,6 +94,14 @@ define([
                 currentView.close();
             }
             currentView = new StationsView();
+
+        });
+
+        app_router.on('route:showReadme', function () {
+            if (currentView) {
+                currentView.close();
+            }
+            currentView = new ReadmeView();
 
         });
 

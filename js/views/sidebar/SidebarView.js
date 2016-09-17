@@ -70,7 +70,7 @@ define([
         },
         close: function () {
             fLog("calling SidebarView close()");
-            //this.remove();
+            this.remove();
             this.unbind();
         }
 

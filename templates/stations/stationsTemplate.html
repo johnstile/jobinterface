@@ -90,16 +90,16 @@
 </script>
 
 <script type="text/template" id="port_barcode_template">
-    <table class="table stripes4" border="1">
+    <table class="table stripes4 barcode" border="1">
         <tbody>
         <!-- Make columns using modulo operator -->
         <% _.sortBy(ports, function(port,index) { %>
 
         <% if ( index%2 == 0) { %>
         <tr>
-            <td><img src="barcode/<%= _.escape(port) %>"/></td>
+            <td><img class="barcode" src="barcode/<%= _.escape(port) %>"/></td>
             <% } else { %>
-            <td><img src="barcode/<%= _.escape(port) %>"/></td>
+            <td><img class="barcode" src="barcode/<%= _.escape(port) %>"/></td>
         </tr>
         <%} }); %>
         </tbody>

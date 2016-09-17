@@ -1,7 +1,6 @@
 <div class="main">
     <h2>Duts</h2>
-    <div id="build_dir"><%= job_dir %></div>
-    <div id="build_number"><%= build_number %></div>
+    <div id="build_dir">Started: <%= job_dir %></div>
     <table border=1 id="jobTable" class="tablesorter">
         <thead>
         <tr>
@@ -15,7 +14,7 @@
             <th title="crosstalk_input_test_fail">X Input</th>
             <th title="crosstalk_output_test_fail">x Output</th>
             <th title="phase_test_between_pairs_fail">Phase Pair</th>
-            <th title="phase_test_between_pairs_fail">Phase All Pair</th>
+            <th title="phase_test_between_all_pairs_fail">Phase All Pair</th>
             <th title="hardware_monitor">HM Log</th>
             <th title="test_results">TR Log</th>
         </tr>
@@ -24,11 +23,8 @@
         <tbody>
         <% _.each(dutCollection, function(dut) {
         // This isn't streaming
-        var log_hm_url = "./#log/" + job_dir + "/" + dut.get('id') + "/test_results"
-        var log_tr_url = "./#log/" + job_dir + "/" + dut.get('id') + "/hardware_monitor"
-        // This is temporary
-        var log_hm_url = "./glitchlogs/" + job_dir + "/hardware_monitor_" +  dut.get('id') + ".txt"
-        var log_tr_url = "./glitchlogs/" + job_dir + "/test_results_" +  dut.get('id') + ".txt"
+        var log_tr_url = "./#log/" + job_dir + "/" + dut.get('id') + "/test_results"
+        var log_hm_url = "./#log/" + job_dir + "/" + dut.get('id') + "/hardware_monitor"
         %>
         <tr>
             <td>
@@ -41,10 +37,12 @@
                             <% } %>
                             <%= dut.get('id') %>
                         </div>
+                    </div>
+                </div>
             </td>
             <td><%= dut.get('iteration') %></td>
-            <td><%= dut.get('dut_failed') %></td>
             <td><%= dut.get('all_iterations_complete') %></td>
+            <td><%= dut.get('dut_failed') %></td>
             <td><%= dut.get('power_cycle_fail') %></td>
             <td><%= dut.get('glitch_test_fail') %></td>
             <td><%= dut.get('pass_audio_fail') %></td>
@@ -56,6 +54,7 @@
                 <button type="button"
                         class="btn btn-primary btn-hm-log"
                         data-id="<%= dut.get('id') %>"
+                        alt="Hardware Monitor"
                         onclick="window.location.href='<%= log_hm_url %>'">View
                 </button>
             </td>
@@ -63,6 +62,7 @@
                 <button type="button"
                         class="btn btn-primary btn-tr-log"
                         data-id="<%= dut.get('id') %>"
+                        alt="Test Result"
                         onclick="window.location.href='<%= log_tr_url %>'">View
                 </button>
             </td>

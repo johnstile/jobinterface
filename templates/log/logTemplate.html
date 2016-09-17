@@ -1,9 +1,8 @@
 <div class="main">
     <h2>Log</h2>
-    <div id="build_dir"></div>
-    <div id="build_number"></div>
-    foo
-    <div id="log"><%= logModel.get('content') %></div>
-    bar
+    <div id="serial_number">DUT: <%= serial_number %></div>
+    <div id="log_file">File: <%= log_file %></div>
+    <div id="build_dir">Started: <%= build_dir %></div>
+    <div id="log"><%= log_formatted %></div>
 </div>
 

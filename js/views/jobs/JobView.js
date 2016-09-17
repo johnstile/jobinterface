@@ -117,7 +117,7 @@ define([
         },
         close: function () {
             fLog("calling JobView close()");
-            //this.remove();
+            this.remove();
             this.unbind();
             this.poller.destroy();
         }

@@ -351,7 +351,8 @@ define([
             }
         },
         close: function () {
-            //this.remove();
+            fLog("calling StationsView close()");
+            this.remove();
             this.unbind();
         }
     });

@@ -3,9 +3,8 @@ define([
     'underscore',
     'backbone',
     'views/sidebar/SidebarView',
-    'collections/jobs/JobsCollection',
     'text!templates/dashboard/dashboardTemplate.html'
-], function ($, _, Backbone, SidebarView, JobsCollection, dashboardTemplate) {
+], function ($, _, Backbone, SidebarView, dashboardTemplate) {
 
     // Enable/disable logging
     var gDebug = true;
@@ -35,7 +34,7 @@ define([
         },
         close: function () {
             fLog("calling DashBoardView close()");
-            //this.remove();
+            this.remove();
             this.unbind();
         }
     });

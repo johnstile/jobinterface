@@ -43,14 +43,18 @@ define([
         events: {
             // <event-object> <element> : <method to call> passing event-object as arg to method.
             "click .btn-delete-dut": "delete_dut", // Remove dut from collection
+            "click .reset_btn": "reset", // Reset entire view
             "change #config-selector": "update_form", // Drop down list of config options
-            "submit .schedule_job_form": "form_submitted", // Determine button that submitted form
-            "change #fileInput": "upload_config" // Upload ad-hoc config file
+            "submit .schedule_job_form": "form_submitted", // Form submitted with DUTs to test
+            "change #fileInput": "upload_config", // Config file chosen
+            "click .upload_file_btn": "upload_config_verified",  // Upload ad-hoc config file and start job
+
         },
         initialize: function () {
             that = this;
             // Holds form data (sn and station)
             this.dutCollection = new ScheduleCollection();
+
             // Type of tests. 2 static options, one just uploads complete config file.
             this.config_types = {
                 "environmental_chamber": "Environmental Chamber",
@@ -60,14 +64,10 @@ define([
             this.config_choice = null;
             // Get list station ports, and populate the drop down option
             this.station_ports = [];
-            $.get(
-                'stationsports',
-                {},
-                function (station_ports) {
-                    that.station_ports = station_ports;
-                    that.render();
-                }
-            );
+            // Name of config file to upload
+            this.upload_config_file = null;
+            // Show me what you got.
+            this.render();
         },
         render: function () {
             $('.menu li').removeClass('active');
@@ -85,33 +85,60 @@ define([
             var compiledTemplate = template();
             this.$el.find("#page").html(compiledTemplate);
         },
-        show_controls: function () {
-            fLog("Draw form buttons");
-
-            // If at least DUT, show Start button
-            if (this.dutCollection.length > 0) {
-                template_start_btn = _.template(this.$el.find("#start-btn-template").html());
-                this.$el.find("#controls").append(template_start_btn);
-            }
-
-        },
         show_config_choices: function () {
             fLog("Draw drop-down dialog of test options");
             template = _.template(this.$el.find("#config_select_template").html());
             var compiledTemplate = template(config_types = this.config_types);
             this.$el.find("#config-type-selector-area").html(compiledTemplate);
         },
+        show_controls: function () {
+            fLog("Do we show Start/Reset?");
+
+            if (this.dutCollection.length > 0) {
+                fLog("At least one DUT, show start");
+                this.$el.find("#controls").show();
+
+            } else if (this.upload_config_file != null) {
+                fLog("File chosen, show start");
+                this.$el.find("#controls").show();
+            } else {
+                fLog("No");
+                this.$el.find("#controls").hide();
+            }
+        },
         update_form: function (e) {
-            // Config selection determine if they upload a file or scan devices
+            fLog("Update the page based on this.config_choice");
+
             this.config_choice = e.currentTarget.value;
             if ((this.config_choice == 'environmental_chamber')
                 || (this.config_choice == 'glitch_rack')
             ) {
+                this.load_stations();
                 this.show_add_dut_form();
+
             } else if (this.config_choice == 'upload_config') {
                 this.show_file_upload_form();
+
             } else {
                 fLog("Not found:" + this.config_choice);
+            }
+            this.show_controls();
+        },
+        load_stations: function () {
+            fLog("Load Stations if not loaded");
+            // Download stations.json,
+            that = this;
+            if (that.station_ports.length == 0) {
+                fLog("Downloading stations");
+                $.ajax({
+                    url: 'stationsports',
+                    success: function (station_ports) {
+                        that.station_ports = station_ports;
+                    },
+                    async: false
+                });
+            } else {
+                fLog(that.station_ports.length);
             }
         },
         show_add_dut_form: function () {
@@ -124,10 +151,6 @@ define([
             template = _.template($("#port_select_template").html());
             compiledTemplate = template(ports = this.station_ports);
             $(".port_selector").html(compiledTemplate);
-
-            // Add Start button if at least one unit is present.
-            this.show_controls()
-
         },
         form_submitted: function (e) {
             e.preventDefault();
@@ -159,8 +182,9 @@ define([
                 this.add_dut(e);
             } else if ($btn.attr("id") == 'start_test_btn') {
                 this.start_test(e);
+            } else if ($btn.attr("id") == 'reset_btn') {
+                this.reset();
             }
-
             return false;
         },
         add_dut: function (e) {
@@ -233,18 +257,25 @@ define([
             var new_job = new JobModel({duts: this.dutCollection, conf: this.config_choice});
             //fLog("Post to server");
             jobsCollection = new JobsCollection();
-            jobsCollection.fetch().done(function () {
+            jobsCollection.fetch({ data: { show_n_jobs: 1} }).done(function () {
                 jobsCollection.create(new_job, {
-                    error: function (model, response) {
-                        //fLog(response);
-                        alert(response.status);
-                    },
-                    success: function (model, response) {
-                        //fLog(response);
-                        alert(response.status + ", Switching to Jobs View");
+                    success: function (fd) {
+                        //alert("Job Started, Switching to Jobs View");
                         fLog("Navigate to jobs");
+                        that.$el.find("#page").html("<h1>Job Started</h1>");
                         Backbone.history.navigate('jobs', {trigger: true});
-                    }
+                    },
+                    error: function (fd) {
+                        fLog('Failed');
+                        that.$el.find("#page").html("<h1>FAILED TO START</h1>");
+                        that.$el.find("#page").show();
+                    },
+                    beforeSend:function (fd) {
+                        fLog('Replace controls with Spinner');
+                        template = _.template(that.$el.find("#spinner_template").html());
+                        var compiledTemplate = template();
+                        that.$el.find("#page").html(compiledTemplate);
+                    },
                 });
             });
             //
@@ -271,18 +302,31 @@ define([
 
         },
         upload_config: function () {
-            var upload_config_file = $('input[name="fileInput"]')[0].files[0];
-            fLog(upload_config_file);
+            fLog("Verify start job with this file");
+            this.upload_config_file = $('input[name="fileInput"]')[0].files[0];
+            fLog(this.upload_config_file);
 
-            f_name = upload_config_file.name;
-            f_size = upload_config_file.size;
-            f_type = upload_config_file.type;
-            fLog("name:" + f_name);
-            fLog("size:" + f_size);
-            fLog("type:" + f_type);
+            f_name = this.upload_config_file.name;
+            f_size = this.upload_config_file.size;
+            f_type = this.upload_config_file.type;
+            fLog(" name:" + f_name);
+            fLog(" size:" + f_size);
+            fLog(" type:" + f_type);
+
+            // Validate chosen file extension
+            var fileExtension = ['json', 'yaml'];
+            if ($.inArray(f_name.split('.').pop().toLowerCase(), fileExtension) == -1) {
+                alert("Only formats are allowed : " + fileExtension.join(', '));
+                this.upload_config_file = null;
+            }
+            this.show_controls();
+
+        },
+        upload_config_verified: function () {
+            fLog("Verified start job with config file: " + this.upload_config_file);
 
             var fd = new FormData();
-            fd.append('file', upload_config_file);
+            fd.append('file', this.upload_config_file);
 
             // For a ad-hoc job we upload a file.
             // This is not very backbone like.
@@ -294,22 +338,32 @@ define([
                 data: fd,
                 type: 'POST',
                 success: function (fd) {
-                    //$('#loadingModal').modal('hide');
-                    alert("Job Started");
-                    alert(fd.status + ", Switching to Jobs View");
+                    //alert("Job Started, Switching to Jobs View");
                     fLog("Navigate to jobs");
+                    that.$el.find("#page").html("<h1>Job Started</h1>");
                     Backbone.history.navigate('jobs', {trigger: true});
                 },
                 error: function (fd) {
-                    alert('Failed');
-                    //$('#loadingModal').modal('hide');
-                }
+                    fLog('Failed');
+                    that.$el.find("#page").html("<h1>FAILED TO START</h1>");
+                    that.$el.find("#page").show();
+                },
+                beforeSend:function (fd) {
+                    fLog('Replace controls with Spinner');
+                    template = _.template(that.$el.find("#spinner_template").html());
+                    var compiledTemplate = template();
+                    that.$el.find("#page").html(compiledTemplate);
+                },
             });
-
+        },
+        reset: function () {
+            fLog("Reset view");
+            this.initialize();
+            //Backbone.history.navigate('schedule', {trigger: true, replace: true});
         },
         close: function () {
             fLog("calling ScheduleView close()");
-            //this.remove();
+            this.remove();
             this.unbind();
         }
     });

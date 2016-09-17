@@ -23,6 +23,17 @@ define([
             fLog("URL: " + url);
             return url;
         },
+        // call original Backbone.Model#fetch with `dataType` equal `text` for $.ajax
+        fetch: function (options) {
+            options = _.extend(options || {}, {
+                dataType: 'text'
+            });
+            this.constructor.__super__.fetch.call(this, options);
+        },
+        // store response in content attribute
+        parse: function (response) {
+            return {content: response};
+        },
         // // call original Backbone.Model#fetch with `dataType` equal `text` for $.ajax
         // fetch: function (options) {
         //     options = _.extend(options || {}, {

@@ -29,6 +29,13 @@ define(
                 return fetch.apply(this, arguments);
             };
         });
+  
+        // Override backbone View remove method to not delete el
+        Backbone.View.prototype.remove = function () { 
+            this.$el.empty().off(); /* off to unbind the events */
+            this.stopListening();
+            return this;
+        }
 
         var initialize = function () {
             // Pass in our Router module and call it's initialize function

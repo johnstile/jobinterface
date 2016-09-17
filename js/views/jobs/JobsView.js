@@ -161,7 +161,7 @@ define([
         },
         close: function () {
             fLog("calling JobsView close()");
-            //this.remove();
+            this.remove();
             this.unbind();
             this.poller.destroy();
             this.jobsCollection.unbind();
